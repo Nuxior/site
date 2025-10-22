@@ -4,32 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Votre panier – Éclat d’Or</title>
+
+  <!-- Polices -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: "Poppins", sans-serif;
       margin: 0;
-      background: #fff;
+      background: #fffefc;
       color: #111;
     }
 
     header {
-      background: rgba(255,255,255,0.97);
+      background: rgba(255,255,255,0.98);
       padding: 1rem 5%;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
     }
 
-    header h1 { color: #c8a951; }
+    header h1 { 
+      font-family: "Playfair Display", serif;
+      color: #c8a951;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      font-size: 1.8rem;
+    }
 
     a {
       text-decoration: none;
       color: #111;
+      transition: color 0.3s;
     }
+    a:hover { color: #b5983e; }
 
     main {
       padding: 2rem 10%;
@@ -39,6 +50,8 @@
       color: #c8a951;
       text-align: center;
       margin-bottom: 2rem;
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
     }
 
     .panier-item {
@@ -47,14 +60,22 @@
       justify-content: space-between;
       border-bottom: 1px solid #eee;
       padding: 1rem 0;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .panier-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
     }
 
     .panier-item img {
       width: 100px;
       height: 100px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
+      transition: transform 0.3s;
     }
+    .panier-item img:hover { transform: scale(1.05); }
 
     .panier-info {
       flex: 1;
@@ -62,21 +83,24 @@
     }
 
     .btn {
-      background: #c8a951;
+      background: linear-gradient(135deg, #c8a951, #b5983e);
       color: #fff;
       padding: 0.6rem 1.2rem;
       border: none;
-      border-radius: 20px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(200,169,81,0.3);
     }
-
-    .btn:hover { background: #b5983e; }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(200,169,81,0.5);
+      background: linear-gradient(135deg, #b5983e, #c8a951);
+    }
 
     .btn-danger {
       background: #c94f4f;
     }
-
     .btn-danger:hover {
       background: #a53d3d;
     }
@@ -84,7 +108,6 @@
     .btn-success {
       background: #4caf50;
     }
-
     .btn-success:hover {
       background: #3c8e3f;
     }
@@ -96,14 +119,6 @@
       margin-top: 2rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
-      color: #fff;
-      margin-top: 3rem;
-    }
-
     .actions {
       text-align: right;
       margin-top: 1.5rem;
@@ -113,6 +128,13 @@
       flex-wrap: wrap;
     }
 
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: #fff;
+      margin-top: 3rem;
+    }
   </style>
 </head>
 <body>
