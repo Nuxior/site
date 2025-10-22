@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détail du produit – Éclat d’Or</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #111;
+    }
+
+    header {
+      background: rgba(255,255,255,0.97);
+      padding: 1rem 5%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      color: #c8a951;
+    }
+
+    a {
+      text-decoration: none;
+      color: #111;
+    }
+
+    main {
+      padding: 2rem 10%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      width: 400px;
+      max-width: 90%;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .info {
+      max-width: 500px;
+    }
+
+    .info h2 {
+      color: #c8a951;
+      margin-bottom: 1rem;
+    }
+
+    .info p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background: #c8a951;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #b5983e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: #fff;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><h1>Éclat d’Or ✨</h1></a>
+    <a href="panier.html">🛍️ Voir le panier</a>
+  </header>
+
+  <main id="produit-details"></main>
+
+  <footer>
+    <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const produits = {
+      "creme-hydratante": {
+        nom: "Crème Hydratante",
+        prix: 80,
+        image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=800&q=80",
+        description: "Notre crème hydratante offre une hydratation profonde, une texture légère et un éclat naturel. Formulée avec des extraits botaniques et des huiles précieuses."
+      },
+      "serum-eclat": {
+        nom: "Sérum Éclat",
+        prix: 95,
+        image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=80",
+        description: "Un sérum léger et concentré pour révéler un teint lumineux et revitaliser la peau. Riche en vitamine C naturelle."
+      },
+      "huile-precieuse": {
+        nom: "Huile Précieuse",
+        prix: 120,
+        image: "https://images.unsplash.com/photo-1620916566398-39f33b3d1e4e?auto=format&fit=crop&w=800&q=80",
+        description: "Une huile délicate et non grasse, enrichie en or végétal, pour nourrir intensément et laisser un fini satiné."
+      },
+      "creme-antiage": {
+        nom: "Crème Anti-Âge Suprême",
+        prix: 210,
+        image: "https://images.unsplash.com/photo-1608454942430-5a5a5ed23402?auto=format&fit=crop&w=800&q=80",
+        description: "Formule régénérante pour lisser les rides, raffermir la peau et raviver son éclat en profondeur."
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const produit = produits[id];
+
+    const container = document.getElementById("produit-details");
+
+    if (produit) {
+      container.innerHTML = `
+        <img src="${produit.image}" alt="${produit.nom}">
+        <div class="info">
+          <h2>${produit.nom}</h2>
+          <p>${produit.description}</p>
+          <p><strong>Prix :</strong> ${produit.prix} €</p>
+          <button class="btn" onclick="ajouterAuPanier('${id}')">Ajouter au panier</button>
+        </div>
+      `;
+    } else {
+      container.innerHTML = "<p>Produit introuvable.</p>";
+    }
+
+    function ajouterAuPanier(id) {
+      const panier = JSON.parse(localStorage.getItem("panier")) || [];
+      panier.push(produits[id]);
+      localStorage.setItem("panier", JSON.stringify(panier));
+      alert(`${produits[id].nom} a été ajouté au panier.`);
+    }
+  </script>
+</body>
+</html>
