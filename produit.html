@@ -4,34 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Détail du produit – Éclat d’Or</title>
+
+  <!-- Polices -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: "Poppins", sans-serif;
       margin: 0;
-      background: #fff;
+      background: #fffefc;
       color: #111;
     }
 
     header {
-      background: rgba(255,255,255,0.97);
+      background: rgba(255,255,255,0.98);
       padding: 1rem 5%;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
     }
 
-    header h1 {
+    header h1 { 
+      font-family: "Playfair Display", serif;
       color: #c8a951;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      font-size: 1.8rem;
     }
 
     a {
       text-decoration: none;
       color: #111;
+      transition: color 0.3s;
     }
+    a:hover { color: #b5983e; }
 
     main {
       padding: 2rem 10%;
@@ -46,8 +55,10 @@
       width: 400px;
       max-width: 90%;
       border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, filter 0.3s;
     }
+    img:hover { transform: scale(1.05); filter: brightness(1.05) saturate(1.1); }
 
     .info {
       max-width: 500px;
@@ -56,25 +67,30 @@
     .info h2 {
       color: #c8a951;
       margin-bottom: 1rem;
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
     }
 
     .info p {
       line-height: 1.6;
       margin-bottom: 1rem;
+      color: #444;
     }
 
     .btn {
-      background: #c8a951;
+      background: linear-gradient(135deg, #c8a951, #b5983e);
       color: #fff;
       padding: 0.8rem 1.5rem;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(200,169,81,0.3);
     }
-
     .btn:hover {
-      background: #b5983e;
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(200,169,81,0.5);
+      background: linear-gradient(135deg, #b5983e, #c8a951);
     }
 
     footer {
