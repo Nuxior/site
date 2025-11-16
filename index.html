@@ -62,13 +62,23 @@
       Nos formules associent des ingrédients nobles à une recherche scientifique de pointe.  
       Chaque produit est conçu pour sublimer la peau avec douceur et éclat.
     </p>
-    <div style="margin-top: 2rem; text-align: center;">
-      <h3 style="color:#c8a951;">Notre Identité</h3>
-      <p style="color:#444; max-width:800px; margin:1rem auto;">
-        Une élégance intemporelle, une touche dorée, un luxe responsable.  
-        Chez <strong>Éclat d’Or</strong>, la beauté se révèle dans la lumière et la simplicité.
-      </p>
-      <p style="font-style:italic; color:#b5983e;">« L’alchimie du luxe et de la nature »</p>
+
+    <!-- SECTION LA CRÉATRICE -->
+    <div class="creatrice">
+      <div class="creatrice-img"></div>
+      <div class="creatrice-text">
+        <h3>La Créatrice</h3>
+        <p>
+          Derrière <strong>Éclat d’Or</strong>, il y a une passionnée : 
+          <strong>[Ton Nom]</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
+          J’ai imaginé une marque où chaque soin allie efficacité, élégance et naturalité.
+          <br><br>
+          Après des années d’exploration dans l’univers du bien-être, j’ai voulu offrir des
+          produits sensoriels, raffinés et profondément respectueux de la peau.
+          <br><br>
+          <em>« Éclat d’Or est ma vision d’une beauté lumineuse, douce et intemporelle. »</em>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -87,7 +97,6 @@
   </footer>
 
   <script>
-    // --- Burger ---
     const burger = document.getElementById('burger');
     const navMenu = document.querySelector('nav ul');
     burger.addEventListener('click', () => {
@@ -95,14 +104,12 @@
       navMenu.classList.toggle('active');
     });
 
-    // --- Fondu au scroll ---
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
     }, { threshold: 0.2 });
     sections.forEach(section => observer.observe(section));
 
-    // --- Panier ---
     function updatePanierCount() {
       const panier = JSON.parse(localStorage.getItem('panier')) || [];
       document.getElementById('panier-count').textContent = panier.length;
