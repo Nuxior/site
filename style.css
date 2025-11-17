@@ -111,9 +111,16 @@ section.visible { opacity: 1; transform: translateY(0); }
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: url('images/creatrice.jpg') center/cover no-repeat;
+  overflow: hidden; /* Essentials */
   border: 4px solid #c8a951;
   flex-shrink: 0;
+}
+
+.creatrice-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .creatrice-text h3 {
