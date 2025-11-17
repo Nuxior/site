@@ -73,14 +73,12 @@
             raffinés et nomades, conçus pour sublimer la peau avec douceur.
         </p>
 
-        <!-- ==== PHOTO DE ROMANE EN CERCLE ==== -->
         <div class="photo-creatrice-wrapper">
             <img src="images/romane.jpg" alt="Romane - Créatrice" class="photo-creatrice">
         </div>
 
     </div>
 </section>
-<!-- ===== FIN SECTION ===== -->
 
 <section id="contact">
     <h2>Contact & Avis</h2>
@@ -97,26 +95,26 @@
 </footer>
 
 <script>
-    const burger = document.getElementById('burger');
-    const navMenu = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+const burger = document.getElementById('burger');
+const navMenu = document.querySelector('nav ul');
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
     });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
 
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-
-    function updatePanierCount() {
-        const panier = JSON.parse(localStorage.getItem('panier')) || [];
-        document.getElementById('panier-count').textContent = panier.length;
-    }
-    updatePanierCount();
+function updatePanierCount() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    document.getElementById('panier-count').textContent = panier.length;
+}
+updatePanierCount();
 </script>
 
 </body>
