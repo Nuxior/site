@@ -1,41 +1,123 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - Éclat d’Or</title>
-
-    <!-- Lien vers ton fichier CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Éclat d’Or – Cosmétiques de luxe</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- ======= SECTION À PROPOS ======= -->
-    <section id="apropos" class="section-apropos">
-        <div class="contenu-apropos">
+<header>
+    <nav>
+        <h1>Éclat d’Or ✨</h1>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produit">Produits</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#contact">Contact & Avis</a></li>
+            <li><a href="panier.html" class="panier-icon">🛍️ <span class="panier-count" id="panier-count">0</span></a></li>
+        </ul>
+        <div class="burger" id="burger"><div></div><div></div><div></div></div>
+    </nav>
+</header>
 
-            <h2 class="titre-apropos">La Créatrice</h2>
+<section id="accueil" class="visible">
+    <div class="content">
+        <h2>Éclat d’Or</h2>
+        <p>L’alchimie du luxe et de la nature.</p>
+        <a href="#produit"><button class="btn">Voir nos produits</button></a>
+    </div>
+</section>
 
-            <p class="texte-apropos">
-                Derrière <strong>Éclat d’Or</strong>, il y a une passionnée :
-                <strong>Romane</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
-                Elle imagine une marque où chaque soin allie efficacité, élégance et naturalité.
-            </p>
+<section id="produit">
+    <h2>Nos Produits</h2>
+    <div class="produits">
+        <a class="produit" href="produit.html?id=creme-hydratante">
+            <img src="images/creme-hydra.png" alt="Crème Hydratante" />
+            <h3>Crème Hydratante</h3>
+            <p>Hydratation profonde et éclat immédiat – 80 €</p>
+        </a>
+        <a class="produit" href="produit.html?id=serum-eclat">
+            <img src="images/serum-eclat.jpg" alt="Sérum Éclat" />
+            <h3>Sérum Éclat</h3>
+            <p>Un teint lumineux et une peau revitalisée – 95 €</p>
+        </a>
+        <a class="produit" href="produit.html?id=huile-precieuse">
+            <img src="images/huile-precieuse.jpg" alt="Huile Précieuse" />
+            <h3>Huile Précieuse</h3>
+            <p>Une texture légère et un fini satiné – 120 €</p>
+        </a>
+        <a class="produit" href="produit.html?id=creme-antiage">
+            <img src="images/creme-contour-yeux.png" alt="Crème Anti-Âge Suprême" />
+            <h3>Crème Anti-Âge Suprême</h3>
+            <p>Lisse les rides et restaure l’élasticité – 210 €</p>
+        </a>
+    </div>
+</section>
 
-            <p class="texte-apropos">
-                Après des années d’exploration dans l’univers du bien-être, elle a voulu offrir des produits sensoriels,
-                raffinés et nomades, conçus pour sublimer la peau avec douceur.
-            </p>
+<!-- ======= SECTION À PROPOS ======= -->
+<section id="apropos" class="section-apropos">
+    <div class="contenu-apropos">
 
-            <!-- ==== PHOTO DE ROMANE EN CERCLE ==== -->
-            <div class="photo-creatrice-wrapper">
-                <img src="images/romane.jpg" alt="Romane - Créatrice" class="photo-creatrice">
-            </div>
+        <h2 class="titre-apropos">La Créatrice</h2>
 
+        <p class="texte-apropos">
+            Derrière <strong>Éclat d’Or</strong>, il y a une passionnée :
+            <strong>Romane</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
+            Elle imagine une marque où chaque soin allie efficacité, élégance et naturalité.
+        </p>
+
+        <p class="texte-apropos">
+            Après des années d’exploration dans l’univers du bien-être, elle a voulu offrir des produits sensoriels,
+            raffinés et nomades, conçus pour sublimer la peau avec douceur.
+        </p>
+
+        <!-- ==== PHOTO DE ROMANE EN CERCLE ==== -->
+        <div class="photo-creatrice-wrapper">
+            <img src="images/romane.jpg" alt="Romane - Créatrice" class="photo-creatrice">
         </div>
-    </section>
-    <!-- ===== FIN SECTION ===== -->
+
+    </div>
+</section>
+<!-- ===== FIN SECTION ===== -->
+
+<section id="contact">
+    <h2>Contact & Avis</h2>
+    <form>
+        <input type="text" placeholder="Votre nom" required />
+        <input type="email" placeholder="Votre e-mail" required />
+        <textarea rows="5" placeholder="Votre message ou avis" required></textarea>
+        <button class="btn" type="submit">Envoyer</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
+</footer>
+
+<script>
+    const burger = document.getElementById('burger');
+    const navMenu = document.querySelector('nav ul');
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    function updatePanierCount() {
+        const panier = JSON.parse(localStorage.getItem('panier')) || [];
+        document.getElementById('panier-count').textContent = panier.length;
+    }
+    updatePanierCount();
+</script>
 
 </body>
 </html>
