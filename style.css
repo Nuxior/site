@@ -38,7 +38,7 @@ nav ul li a:hover { color: #c8a951; }
 
 /* ---- SECTIONS ---- */
 section {
-  padding: 100px 10%; min-height: 100vh;
+  padding: 100px 10%;
   opacity: 0; transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
@@ -102,16 +102,11 @@ section.visible { opacity: 1; transform: translateY(0); }
   background-color: #fdf7f0;
 }
 
-.titre-apropos {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
+.titre-apropos { font-size: 2em; margin-bottom: 20px; }
 
 .texte-apropos {
-  font-size: 1.1em;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto 20px auto;
+  font-size: 1.1em; line-height: 1.6;
+  max-width: 700px; margin: 0 auto 20px auto;
 }
 
 .photo-creatrice-wrapper {
@@ -123,8 +118,10 @@ section.visible { opacity: 1; transform: translateY(0); }
 .photo-creatrice {
   width: 220px;
   height: 220px;
+  max-width: 100%;
   border-radius: 50%;
   object-fit: cover;
+  display: block;
   border: 4px solid #c8a951;
 }
 
@@ -153,7 +150,7 @@ footer { text-align: center; padding: 2rem 0; background: #faf7f0; color: #444; 
 
   .produits { grid-template-columns: 1fr; }
 
-  .section-apropos .photo-creatrice-wrapper { margin-top: 20px; }
+  .photo-creatrice { width: 150px; height: 150px; }
 }
 
 .burger.active div:nth-child(1) { transform: rotate(45deg) translateY(8px); }
