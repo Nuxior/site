@@ -59,12 +59,12 @@ section.visible { opacity: 1; transform: translateY(0); }
   background: url('images/branding.jpg') center/cover no-repeat;
 }
 
-/* Overlay sombre */
+/* Overlay sombre uniquement sur la partie texte */
 #accueil::before {
   content: "";
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  position: absolute; top: 0; left: 0; width: 50%; height: 100%;
   background: rgba(0,0,0,0.3);
-  z-index: 0;
+  z-index: 1;
 }
 
 /* Texte à gauche */
@@ -72,23 +72,23 @@ section.visible { opacity: 1; transform: translateY(0); }
   flex: 1;
   padding-right: 2rem;
   position: relative;
-  z-index: 2;
+  z-index: 2; /* au-dessus de l'overlay */
 }
 
 /* Vidéo à droite */
 .video-wrapper {
   flex: 1;
   position: relative;
-  height: 80vh; 
-  max-width: 600px; 
-  z-index: 1;
+  height: 80vh;
+  max-width: 600px;
+  z-index: 3; /* au-dessus de l'image et overlay */
 }
 
 #video-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px; 
+  border-radius: 12px;
   filter: brightness(0.7);
 }
 
