@@ -78,7 +78,6 @@ section.visible { opacity: 1; transform: translateY(0); }
 }
 
 /* Vidéo à droite */
-@@ -68,116 +81,117 @@
   position: relative;
   height: 80vh; 
   max-width: 600px; 
@@ -196,3 +195,4 @@ footer { text-align: center; padding: 2rem 0; background: #faf7f0; color: #444; 
 .burger.active div:nth-child(1) { transform: rotate(45deg) translateY(8px); }
 .burger.active div:nth-child(2) { opacity: 0; }
 .burger.active div:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
+
