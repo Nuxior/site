@@ -47,8 +47,8 @@ section.visible { opacity: 1; transform: translateY(0); }
 /* ---- HERO / ACCUEIL ---- */
 #accueil {
   display: flex;
-  align-items: center;
-  justify-content: flex-start; /* contenu à gauche */
+  align-items: center;              /* centre verticalement */
+  justify-content: space-between;   /* texte à gauche, vidéo à droite */
   min-height: 100vh;
   padding: 0 5%;
   color: #fff;
@@ -57,7 +57,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   background: url('images/branding.jpg') center/cover no-repeat;
 }
 
-/* Overlay sombre uniquement sur le texte */
+/* Overlay sombre uniquement sur la moitié gauche (texte) */
 #accueil::before {
   content: "";
   position: absolute;
@@ -68,26 +68,14 @@ section.visible { opacity: 1; transform: translateY(0); }
 
 /* Texte à gauche */
 #accueil .content {
-  flex: 0 0 50%; /* largeur 50% */
-  padding-right: 2rem;
+  flex: 0 0 50%;                 /* prend 50% largeur */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        /* centre verticalement dans sa moitié */
+  align-items: flex-start;        /* aligné à gauche */
   position: relative;
   z-index: 2;
-}
-
-/* Vidéo à droite */
-.video-wrapper {
-  flex: 0 0 50%; /* largeur 50% */
-  position: relative;
-  height: 80vh;
-  z-index: 3; /* au-dessus de l'image et overlay */
-}
-
-#video-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  filter: brightness(0.7);
+  padding-right: 2rem;
 }
 
 #accueil h2 { font-size: 3rem; letter-spacing: 2px; }
@@ -99,6 +87,22 @@ section.visible { opacity: 1; transform: translateY(0); }
   transition: background 0.3s;
 }
 .btn:hover { background: #b5983e; }
+
+/* Vidéo à droite */
+.video-wrapper {
+  flex: 0 0 50%;             /* prend 50% largeur */
+  position: relative;
+  height: 80vh;
+  z-index: 3;
+}
+
+#video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: brightness(0.7);
+}
 
 /* ---- PRODUITS ---- */
 #produit h2, #apropos h2, #contact h2 {
@@ -142,6 +146,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   max-width: 700px; margin: 0 auto 20px auto;
 }
 
+/* Bandeau photo créatrice centré */
 .photo-creatrice-wrapper {
   margin-top: 30px;
   display: flex;
@@ -172,7 +177,7 @@ footer { text-align: center; padding: 2rem 0; background: #faf7f0; color: #444; 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   #accueil { flex-direction: column; padding: 0 2rem; }
-  #accueil .content { padding-right: 0; margin-bottom: 20px; }
+  #accueil .content { padding-right: 0; margin-bottom: 20px; align-items: center; text-align: center; }
   .video-wrapper { width: 100%; height: 300px; max-width: 100%; }
 
   nav ul {
