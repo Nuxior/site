@@ -22,7 +22,6 @@
     </nav>
 </header>
 
-<!-- ======= SECTION ACCUEIL ======= -->
 <section id="accueil" class="visible">
     <div class="content">
         <h2>Éclat d’Or</h2>
@@ -31,7 +30,6 @@
     </div>
 </section>
 
-<!-- ======= SECTION PRODUITS ======= -->
 <section id="produit">
     <h2>Nos Produits</h2>
     <div class="produits">
@@ -61,38 +59,27 @@
 <!-- ======= SECTION À PROPOS ======= -->
 <section id="apropos" class="section-apropos">
     <div class="contenu-apropos">
-        <div class="apropos-text-video">
-            <!-- Texte -->
-            <div class="texte-video">
-                <h2 class="titre-apropos">La Créatrice</h2>
-                <p class="texte-apropos">
-                    Derrière <strong>Éclat d’Or</strong>, il y a une passionnée :
-                    <strong>Romane</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
-                    Elle imagine une marque où chaque soin allie efficacité, élégance et naturalité.
-                </p>
-                <p class="texte-apropos">
-                    Après des années d’exploration dans l’univers du bien-être, elle a voulu offrir des produits sensoriels,
-                    raffinés et nomades, conçus pour sublimer la peau avec douceur.
-                </p>
-            </div>
 
-            <!-- Vidéo à droite -->
-            <div class="video-apropos">
-                <video autoplay muted loop>
-                    <source src="videos/goutte.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas les vidéos HTML5.
-                </video>
-            </div>
-        </div>
+        <h2 class="titre-apropos">La Créatrice</h2>
 
-        <!-- Photo créatrice -->
+        <p class="texte-apropos">
+            Derrière <strong>Éclat d’Or</strong>, il y a une passionnée :
+            <strong>Romane</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
+            Elle imagine une marque où chaque soin allie efficacité, élégance et naturalité.
+        </p>
+
+        <p class="texte-apropos">
+            Après des années d’exploration dans l’univers du bien-être, elle a voulu offrir des produits sensoriels,
+            raffinés et nomades, conçus pour sublimer la peau avec douceur.
+        </p>
+
         <div class="photo-creatrice-wrapper">
             <img src="images/romane.jpg" alt="Romane - Créatrice" class="photo-creatrice">
         </div>
+
     </div>
 </section>
 
-<!-- ======= SECTION CONTACT ======= -->
 <section id="contact">
     <h2>Contact & Avis</h2>
     <form>
@@ -115,6 +102,14 @@ burger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+
 function updatePanierCount() {
     const panier = JSON.parse(localStorage.getItem('panier')) || [];
     document.getElementById('panier-count').textContent = panier.length;
@@ -122,5 +117,6 @@ function updatePanierCount() {
 updatePanierCount();
 </script>
 
+    
 </body>
 </html>
