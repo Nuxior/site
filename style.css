@@ -47,34 +47,35 @@ section.visible { opacity: 1; transform: translateY(0); }
 /* ---- HERO / ACCUEIL ---- */
 #accueil {
   display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;
-  text-align: center;
-  color: #fff; 
-  position: relative; 
-  min-height: 100vh;
-  padding: 0 10%;
-  background: none;
-  overflow: hidden;
+  align-items: center; 
+  justify-content: space-between;
+  min-height: 100vh; 
+  padding: 0 5%;
+  background: none; 
+  color: #fff;
 }
 
-/* Vidéo en fond */
+/* Texte à gauche */
+#accueil .content {
+  flex: 1;
+  padding-right: 2rem;
+  z-index: 1;
+}
+
+/* Vidéo à droite */
+.video-wrapper {
+  flex: 1;
+  position: relative;
+  height: 80vh; 
+  max-width: 600px; 
+}
+
 #video-bg {
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
-  filter: brightness(0.5); /* assombrit la vidéo pour le texte */
-}
-
-/* Contenu de la section au-dessus de la vidéo */
-#accueil .content { 
-  position: relative; 
-  z-index: 1; 
+  border-radius: 12px; 
+  filter: brightness(0.7);
 }
 
 #accueil h2 { font-size: 3rem; letter-spacing: 2px; }
@@ -158,6 +159,10 @@ footer { text-align: center; padding: 2rem 0; background: #faf7f0; color: #444; 
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  #accueil { flex-direction: column; padding: 0 2rem; }
+  #accueil .content { padding-right: 0; margin-bottom: 20px; }
+  .video-wrapper { width: 100%; height: 300px; max-width: 100%; }
+
   nav ul {
     display: none; flex-direction: column;
     position: absolute; top: 70px; right: 5%;
