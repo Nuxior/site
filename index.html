@@ -1,3 +1,129 @@
+@@ -1,125 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Éclat d’Or – Cosmétiques de luxe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <h1>Éclat d’Or ✨</h1>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produit">Produits</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#contact">Contact & Avis</a></li>
+            <li><a href="panier.html" class="panier-icon">🛍️ <span class="panier-count" id="panier-count">0</span></a></li>
+        </ul>
+        <div class="burger" id="burger"><div></div><div></div><div></div></div>
+    </nav>
+</header>
+
+<!-- ======= SECTION ACCUEIL ======= -->
+<section id="accueil" class="visible">
+    <div class="content">
+        <h2>Éclat d’Or</h2>
+        <p>L’alchimie du luxe et de la nature.</p>
+        <a href="#produit"><button class="btn">Voir nos produits</button></a>
+    </div>
+    <div class="video-wrapper">
+        <video autoplay muted loop id="video-bg">
+            <source src="videos/goutte.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas les vidéos HTML5.
+        </video>
+    </div>
+</section>
+
+<!-- ======= SECTION PRODUITS ======= -->
+<section id="produit">
+    <h2>Nos Produits</h2>
+    <div class="produits">
+        <a class="produit" href="produit.html?id=creme-hydratante">
+            <img src="images/creme-hydra.png" alt="Crème Hydratante" />
+            <h3>Crème Hydratante</h3>
+            <p>Hydratation profonde et éclat immédiat – 80 €</p>
+        </a>
+        <a class="produit" href="produit.html?id=serum-eclat">
+            <img src="images/serum-eclat.jpg" alt="Sérum Éclat" />
+            <h3>Sérum Éclat</h3>
+            <p>Un teint lumineux et une peau revitalisée – 95 €</p>
+        </a>
+        <a class="produit" href="produit.html?id=huile-precieuse">
+            <img src="images/huile-precieuse.jpg" alt="Huile Précieuse" />
+            <h3>Huile Précieuse</h3>
+            <p>Une texture légère et un fini satiné – 120 €</p>
+        </a>
+        <a class="produit" href="produit.html?id=creme-antiage">
+            <img src="images/creme-contour-yeux.png" alt="Crème Anti-Âge Suprême" />
+            <h3>Crème Anti-Âge Suprême</h3>
+            <p>Lisse les rides et restaure l’élasticité – 210 €</p>
+        </a>
+    </div>
+</section>
+
+<!-- ======= SECTION À PROPOS ======= -->
+<section id="apropos" class="section-apropos">
+    <div class="contenu-apropos">
+        <h2 class="titre-apropos">La Créatrice</h2>
+        <p class="texte-apropos">
+            Derrière <strong>Éclat d’Or</strong>, il y a une passionnée :
+            <strong>Romane</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
+            Elle imagine une marque où chaque soin allie efficacité, élégance et naturalité.
+        </p>
+        <p class="texte-apropos">
+            Après des années d’exploration dans l’univers du bien-être, elle a voulu offrir des produits sensoriels,
+            raffinés et nomades, conçus pour sublimer la peau avec douceur.
+        </p>
+        <div class="photo-creatrice-wrapper">
+            <img src="images/romane.jpg" alt="Romane - Créatrice" class="photo-creatrice">
+        </div>
+    </div>
+</section>
+
+<!-- ======= SECTION CONTACT ======= -->
+<section id="contact">
+    <h2>Contact & Avis</h2>
+    <form>
+        <input type="text" placeholder="Votre nom" required />
+        <input type="email" placeholder="Votre e-mail" required />
+        <textarea rows="5" placeholder="Votre message ou avis" required></textarea>
+        <button class="btn" type="submit">Envoyer</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
+</footer>
+
+<script>
+const burger = document.getElementById('burger');
+const navMenu = document.querySelector('nav ul');
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+
+function updatePanierCount() {
+    const panier = JSON.parse(localStorage.getItem('panier')) || [];
+    document.getElementById('panier-count').textContent = panier.length;
+}
+updatePanierCount();
+</script>
+    
+</body>
+</html>
 /* ---- RESET ---- */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
 html { scroll-behavior: smooth; }
@@ -47,8 +173,8 @@ section.visible { opacity: 1; transform: translateY(0); }
 /* ---- HERO / ACCUEIL ---- */
 #accueil {
   display: flex;
-  align-items: center;              /* centre verticalement */
-  justify-content: space-between;   /* texte à gauche, vidéo à droite */
+  align-items: center;
+  justify-content: flex-start; /* contenu à gauche */
   min-height: 100vh;
   padding: 0 5%;
   color: #fff;
@@ -57,7 +183,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   background: url('images/branding.jpg') center/cover no-repeat;
 }
 
-/* Overlay sombre uniquement sur la moitié gauche (texte) */
+/* Overlay sombre uniquement sur le texte */
 #accueil::before {
   content: "";
   position: absolute;
@@ -68,14 +194,26 @@ section.visible { opacity: 1; transform: translateY(0); }
 
 /* Texte à gauche */
 #accueil .content {
-  flex: 0 0 50%;                 /* prend 50% largeur */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;        /* centre verticalement dans sa moitié */
-  align-items: flex-start;        /* aligné à gauche */
+  flex: 0 0 50%; /* largeur 50% */
+  padding-right: 2rem;
   position: relative;
   z-index: 2;
-  padding-right: 2rem;
+}
+
+/* Vidéo à droite */
+.video-wrapper {
+  flex: 0 0 50%; /* largeur 50% */
+  position: relative;
+  height: 80vh;
+  z-index: 3; /* au-dessus de l'image et overlay */
+}
+
+#video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: brightness(0.7);
 }
 
 #accueil h2 { font-size: 3rem; letter-spacing: 2px; }
@@ -87,22 +225,6 @@ section.visible { opacity: 1; transform: translateY(0); }
   transition: background 0.3s;
 }
 .btn:hover { background: #b5983e; }
-
-/* Vidéo à droite */
-.video-wrapper {
-  flex: 0 0 50%;             /* prend 50% largeur */
-  position: relative;
-  height: 80vh;
-  z-index: 3;
-}
-
-#video-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  filter: brightness(0.7);
-}
 
 /* ---- PRODUITS ---- */
 #produit h2, #apropos h2, #contact h2 {
@@ -146,7 +268,6 @@ section.visible { opacity: 1; transform: translateY(0); }
   max-width: 700px; margin: 0 auto 20px auto;
 }
 
-/* Bandeau photo créatrice centré */
 .photo-creatrice-wrapper {
   margin-top: 30px;
   display: flex;
@@ -177,7 +298,7 @@ footer { text-align: center; padding: 2rem 0; background: #faf7f0; color: #444; 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   #accueil { flex-direction: column; padding: 0 2rem; }
-  #accueil .content { padding-right: 0; margin-bottom: 20px; align-items: center; text-align: center; }
+  #accueil .content { padding-right: 0; margin-bottom: 20px; }
   .video-wrapper { width: 100%; height: 300px; max-width: 100%; }
 
   nav ul {
