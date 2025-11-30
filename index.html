@@ -11,19 +11,23 @@
 <header>
     <nav>
         <h1>Éclat d’Or ✨</h1>
+
         <ul>
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#produit">Produits</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#contact">Contact & Avis</a></li>
             <li>
-              <a href="panier.html" class="panier-icon">
-                🛍️ <span class="panier-count" id="panier-count">0</span>
-              </a>
+                <a href="panier.html" class="panier-icon">
+                    🛍️ <span class="panier-count" id="panier-count">0</span>
+                </a>
             </li>
         </ul>
+
         <div class="burger" id="burger">
-          <div></div><div></div><div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </nav>
 </header>
@@ -32,6 +36,109 @@
 <section id="accueil">
     <div class="content">
         <h2>Éclat d’Or</h2>
-        <p>L’
+        <p>L’alchimie du luxe et de la nature.</p>
 
-            
+        <a href="#produit">
+            <button class="btn">Voir nos produits</button>
+        </a>
+    </div>
+</section>
+
+<!-- ===== PRODUITS ===== -->
+<section id="produit">
+    <h2>Nos Produits</h2>
+
+    <div class="produits">
+        <a class="produit" href="produit.html?id=creme-hydratante">
+            <img src="images/creme-hydra.png" alt="Crème Hydratante" />
+            <h3>Crème Hydratante</h3>
+            <p>Hydratation profonde et éclat immédiat – 80 €</p>
+        </a>
+
+        <a class="produit" href="produit.html?id=serum-eclat">
+            <img src="images/serum-eclat.jpg" alt="Sérum Éclat" />
+            <h3>Sérum Éclat</h3>
+            <p>Un teint lumineux et une peau revitalisée – 95 €</p>
+        </a>
+
+        <a class="produit" href="produit.html?id=huile-precieuse">
+            <img src="images/huile-precieuse.jpg" alt="Huile Précieuse" />
+            <h3>Huile Précieuse</h3>
+            <p>Une texture légère et un fini satiné – 120 €</p>
+        </a>
+
+        <a class="produit" href="produit.html?id=creme-antiage">
+            <img src="images/creme-contour-yeux.png" alt="Crème Anti-Âge Suprême" />
+            <h3>Crème Anti-Âge Suprême</h3>
+            <p>Lisse les rides et restaure l’élasticité – 210 €</p>
+        </a>
+    </div>
+</section>
+
+<!-- ===== À PROPOS + VIDÉO ===== -->
+<section id="apropos" class="section-apropos">
+    <div class="apropos-wrapper">
+
+        <div class="contenu-apropos">
+            <h2>La Créatrice</h2>
+
+            <p>
+                Derrière <strong>Éclat d’Or</strong>, il y a une passionnée :
+                <strong>Romane</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
+            </p>
+
+            <p>
+                Elle imagine une marque où chaque soin allie efficacité, élégance et naturalité.
+            </p>
+
+            <div class="photo-creatrice-wrapper">
+                <img src="images/romane.jpg" alt="Romane" class="photo-creatrice">
+            </div>
+        </div>
+
+        <div class="video-creatrice">
+            <video controls autoplay muted loop playsinline>
+                <source src="videos/goutte.mp4" type="video/mp4">
+                Ton navigateur ne supporte pas la vidéo.
+            </video>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+    <h2>Contact & Avis</h2>
+
+    <form>
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre e-mail" required>
+        <textarea rows="5" placeholder="Votre message ou avis" required></textarea>
+        <button class="btn" type="submit">Envoyer</button>
+    </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
+</footer>
+
+<!-- ===== JS ===== -->
+<script>
+const burger = document.getElementById("burger");
+const navMenu = document.querySelector("nav ul");
+
+burger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+function updatePanierCount() {
+    const panier = JSON.parse(localStorage.getItem("panier")) || [];
+    document.getElementById("panier-count").textContent = panier.length;
+}
+
+updatePanierCount();
+</script>
+
+</body>
+</html>
