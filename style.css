@@ -56,22 +56,34 @@ section {
   padding: 120px 10%;
 }
 
-/* ===== ACCUEIL ===== */
+/* ===== ACCUEIL CENTRÉ ===== */
 #accueil {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   background: black;
   color: white;
 }
 
+#accueil .content {
+  max-width: 600px;
+}
+
+#accueil h2 {
+  font-size: 48px;
+}
+
+/* ===== BOUTON ===== */
 .btn {
   margin-top: 20px;
-  padding: 10px 25px;
+  padding: 12px 28px;
   border: none;
   border-radius: 25px;
   background: gold;
   cursor: pointer;
+  font-size: 16px;
 }
 
 /* ===== PRODUITS ===== */
@@ -119,16 +131,18 @@ section {
   border: 4px solid gold;
 }
 
-/* VIDÉO */
+/* VIDÉO AGRANDIE */
 .video-creatrice {
-  max-width: 500px;
+  max-width: 700px;
   width: 100%;
   background: black;
 }
 
 .video-creatrice video {
   width: 100%;
+  height: 400px;
   display: block;
+  object-fit: cover;
 }
 
 /* ===== CONTACT ===== */
@@ -153,4 +167,31 @@ footer {
   background: #eee;
 }
 
-/* ===== RESPON*
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 15px;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .apropos-wrapper {
+    flex-direction: column;
+  }
+
+  .video-creatrice video {
+    height: 280px;
+  }
+}
