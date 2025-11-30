@@ -62,7 +62,7 @@
     img:hover { transform: scale(1.05); filter: brightness(1.05) saturate(1.1); }
 
     .info {
-      max-width: 500px;
+      max-width: 520px;
     }
 
     .info h2 {
@@ -74,8 +74,13 @@
 
     .info p {
       line-height: 1.6;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       color: #444;
+    }
+
+    ul {
+      margin: 0.5rem 0 1rem 1.2rem;
+      color: #555;
     }
 
     .btn {
@@ -118,35 +123,77 @@
   </footer>
 
   <script>
-    /* === PRODUITS AVEC LES MÊMES IMAGES QUE INDEX === */
+    /* === BASE PRODUITS AVEC TES DESCRIPTIONS COMPLÈTES === */
     const produits = {
       "creme-hydratante": {
-        nom: "Crème Hydratante",
+        nom: "Crème Hydratante – 50 ml",
         prix: 80,
         image: "images/creme-hydra.png",
-        description: "Notre crème hydratante offre une hydratation profonde, une texture légère et un éclat naturel. Formulée avec des extraits botaniques et des huiles précieuses."
+        description: `
+        Une crème hydratante d’exception, formulée à partir d’ingrédients d’origine naturelle.
+        Sa texture fondante pénètre instantanément et laisse la peau souple, fraîche et lumineuse.
+        Idéale pour rééquilibrer et renforcer la barrière cutanée.`,
+        benefices: [
+          "Hydratation profonde 24h",
+          "Texture légère et non grasse",
+          "Teint plus éclatant jour après jour",
+          "Convient à toutes les peaux, même sensibles"
+        ],
+        ingredients: "Aloe vera bio, acide hyaluronique naturel, eau florale de fleur d’oranger."
       },
+
       "serum-eclat": {
-        nom: "Sérum Éclat",
+        nom: "Sérum Éclat – 30 ml",
         prix: 95,
         image: "images/serum-eclat.jpg",
-        description: "Un sérum léger et concentré pour révéler un teint lumineux et revitaliser la peau. Riche en vitamine C naturelle."
+        description: `
+        Un sérum ultra-concentré conçu pour réveiller l’éclat naturel de la peau.
+        Sa formule minimaliste et hautement active unifie le teint, réduit les signes de fatigue
+        et illumine instantanément.`,
+        benefices: [
+          "Teint unifié",
+          "Éclat immédiat",
+          "Réduction des taches et irrégularités",
+          "Effet bonne mine naturel"
+        ],
+        ingredients: "Vitamine C stabilisée, extrait de pivoine blanche, niacinamide."
       },
+
       "huile-precieuse": {
-        nom: "Huile Précieuse",
+        nom: "Huile Précieuse – 30 ml",
         prix: 120,
         image: "images/huile-precieuse.jpg",
-        description: "Une huile délicate et non grasse, enrichie en or végétal, pour nourrir intensément et laisser un fini satiné."
+        description: `
+        Une huile rare et luxueuse, élaborée à partir de plantes précieuses pressées à froid.
+        Sa texture satinée nourrit intensément sans laisser de film gras.`,
+        benefices: [
+          "Nourrit en profondeur",
+          "Lisse et adoucit la peau",
+          "Apporte un éclat naturel longue durée",
+          "Parfum délicat et naturel"
+        ],
+        ingredients: "Huile de figue de barbarie, huile de rose musquée, squalane végétal."
       },
+
       "creme-antiage": {
-        nom: "Crème Anti-Âge Suprême",
+        nom: "Crème Anti-Âge – 50 ml",
         prix: 210,
         image: "images/creme-contour-yeux.png",
-        description: "Formule régénérante pour lisser les rides, raffermir la peau et raviver son éclat en profondeur."
+        description: `
+        Une crème anti-âge hautement performante, formulée exclusivement avec
+        des actifs naturels premium. Elle agit sur les rides, la fermeté et le renouvellement
+        cellulaire pour une peau visiblement rajeunie.`,
+        benefices: [
+          "Rides visiblement réduites",
+          "Peau plus ferme et repulpée",
+          "Effet lissant immédiat",
+          "Correction durable des signes de l’âge"
+        ],
+        ingredients: "Rétinol végétal (bakuchiol), peptides naturels, huile d’argan pure."
       }
     };
 
-    /* === RÉCUPÉRATION DE L’ID DANS L’URL === */
+    /* === RÉCUPÉRATION DE L'ID DANS L'URL === */
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
     const produit = produits[id];
@@ -159,9 +206,21 @@
         <img src="${produit.image}" alt="${produit.nom}">
         <div class="info">
           <h2>${produit.nom}</h2>
-          <p>${produit.description}</p>
+
+          <p><strong>Description :</strong><br>${produit.description}</p>
+
+          <p><strong>Bénéfices :</strong></p>
+          <ul>
+            ${produit.benefices.map(b => `<li>${b}</li>`).join("")}
+          </ul>
+
+          <p><strong>Ingrédients clés :</strong><br>${produit.ingredients}</p>
+
           <p><strong>Prix :</strong> ${produit.prix} €</p>
-          <button class="btn" onclick="ajouterAuPanier('${id}')">Ajouter au panier</button>
+
+          <button class="btn" onclick="ajouterAuPanier('${id}')">
+            Ajouter au panier
+          </button>
         </div>
       `;
     } else {
