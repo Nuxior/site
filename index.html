@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Éclat d’Or – Cosmétiques de luxe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
@@ -16,104 +16,22 @@
             <li><a href="#produit">Produits</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#contact">Contact & Avis</a></li>
-            <li><a href="panier.html" class="panier-icon">🛍️ <span class="panier-count" id="panier-count">0</span></a></li>
+            <li>
+              <a href="panier.html" class="panier-icon">
+                🛍️ <span class="panier-count" id="panier-count">0</span>
+              </a>
+            </li>
         </ul>
-        <div class="burger" id="burger"><div></div><div></div><div></div></div>
+        <div class="burger" id="burger">
+          <div></div><div></div><div></div>
+        </div>
     </nav>
 </header>
 
-<section id="accueil" class="visible">
+<!-- ===== ACCUEIL ===== -->
+<section id="accueil">
     <div class="content">
         <h2>Éclat d’Or</h2>
-        <p>L’alchimie du luxe et de la nature.</p>
-        <a href="#produit"><button class="btn">Voir nos produits</button></a>
-    </div>
-</section>
+        <p>L’
 
-<section id="produit" class="visible">
-    <h2>Nos Produits</h2>
-    <div class="produits">
-        <a class="produit" href="produit.html?id=creme-hydratante">
-            <img src="images/creme-hydra.png" alt="Crème Hydratante" />
-            <h3>Crème Hydratante</h3>
-            <p>Hydratation profonde et éclat immédiat – 80 €</p>
-        </a>
-        <a class="produit" href="produit.html?id=serum-eclat">
-            <img src="images/serum-eclat.jpg" alt="Sérum Éclat" />
-            <h3>Sérum Éclat</h3>
-            <p>Un teint lumineux et une peau revitalisée – 95 €</p>
-        </a>
-        <a class="produit" href="produit.html?id=huile-precieuse">
-            <img src="images/huile-precieuse.jpg" alt="Huile Précieuse" />
-            <h3>Huile Précieuse</h3>
-            <p>Une texture légère et un fini satiné – 120 €</p>
-        </a>
-        <a class="produit" href="produit.html?id=creme-antiage">
-            <img src="images/creme-contour-yeux.png" alt="Crème Anti-Âge Suprême" />
-            <h3>Crème Anti-Âge Suprême</h3>
-            <p>Lisse les rides et restaure l’élasticité – 210 €</p>
-        </a>
-    </div>
-</section>
-
-<!-- ✅ À PROPOS AVEC VIDÉO -->
-<section id="apropos" class="section-apropos visible">
-  <div class="apropos-wrapper">
-
-    <div class="contenu-apropos">
-      <h2 class="titre-apropos">La Créatrice</h2>
-
-      <p class="texte-apropos">
-        Derrière <strong>Éclat d’Or</strong>, il y a une passionnée :
-        <strong>Romane</strong>, fascinée par l’équilibre subtil entre la science et la beauté.
-        Elle imagine une marque où chaque soin allie efficacité, élégance et naturalité.
-      </p>
-
-      <p class="texte-apropos">
-        Après des années d’exploration dans l’univers du bien-être, elle a voulu offrir des produits sensoriels,
-        raffinés et nomades, conçus pour sublimer la peau avec douceur.
-      </p>
-
-      <div class="photo-creatrice-wrapper">
-        <img src="images/romane.jpg" alt="Romane - Créatrice" class="photo-creatrice">
-      </div>
-    </div>
-
-    <div class="video-creatrice">
-      <video src="videos/goutte.mp4" autoplay loop muted playsinline></video>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="visible">
-    <h2>Contact & Avis</h2>
-    <form>
-        <input type="text" placeholder="Votre nom" required />
-        <input type="email" placeholder="Votre e-mail" required />
-        <textarea rows="5" placeholder="Votre message ou avis" required></textarea>
-        <button class="btn" type="submit">Envoyer</button>
-    </form>
-</section>
-
-<footer>
-    <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
-</footer>
-
-<script>
-const burger = document.getElementById('burger');
-const navMenu = document.querySelector('nav ul');
-burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-function updatePanierCount() {
-    const panier = JSON.parse(localStorage.getItem('panier')) || [];
-    document.getElementById('panier-count').textContent = panier.length;
-}
-updatePanierCount();
-</script>
-
-</body>
-</html>
+            
