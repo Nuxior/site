@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +7,8 @@
 }
 
 body {
-  background: white;
-  color: black;
-  padding-top: 90px;   /* ✅ CORRECTION DU HEADER FIXE */
+  background: #fff;
+  color: #111;
 }
 
 /* ===== HEADER ===== */
@@ -17,8 +17,8 @@ header {
   top: 0;
   width: 100%;
   background: white;
-  z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
 nav {
@@ -29,8 +29,8 @@ nav {
 }
 
 nav ul {
-  display: flex;
   list-style: none;
+  display: flex;
   gap: 20px;
 }
 
@@ -42,7 +42,7 @@ nav a {
 .burger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .burger div {
@@ -53,17 +53,17 @@ nav a {
 
 /* ===== SECTIONS ===== */
 section {
-  padding: 100px 10%;
+  padding: 120px 10%;
 }
 
-/* ===== ACCUEIL CENTRÉ ===== */
+/* ===== ACCUEIL ===== */
 #accueil {
-  min-height: calc(100vh - 90px);
-  background: url("images/branding.jpg") center/cover no-repeat;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: black;
   color: white;
 }
 
@@ -78,9 +78,9 @@ section {
 /* ===== BOUTON ===== */
 .btn {
   margin-top: 20px;
-  padding: 12px 30px;
-  border-radius: 30px;
+  padding: 12px 28px;
   border: none;
+  border-radius: 25px;
   background: gold;
   cursor: pointer;
   font-size: 16px;
@@ -91,13 +91,25 @@ section {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
+/* ===== CORRECTION DES LIENS + STYLE PREMIUM ===== */
 .produit {
-  border: 1px solid #ccc;
-  padding-bottom: 15px;
+  text-decoration: none;
+  color: black;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  padding-bottom: 15px;
+}
+
+.produit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .produit img {
@@ -106,39 +118,62 @@ section {
   object-fit: cover;
 }
 
+.produit h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.produit p {
+  font-size: 14px;
+  color: #555;
+  padding: 0 10px 15px;
+}
+
 /* ===== À PROPOS ===== */
 .section-apropos {
   background: #f7f2ec;
+  padding: 120px 10%;
 }
 
 .apropos-wrapper {
   display: flex;
-  gap: 50px;
   align-items: center;
+  justify-content: space-between;
+  gap: 60px;
   flex-wrap: wrap;
 }
 
-/* IMAGE CRÉATRICE */
+.contenu-apropos {
+  flex: 1;
+  max-width: 500px;
+}
+
+/* PHOTO CRÉATRICE */
+.photo-creatrice-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
 .photo-creatrice {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 4px solid gold;
   object-fit: cover;
-  margin-top: 20px;
+  border: 4px solid gold;
 }
 
-/* VIDÉO PLUS GRANDE */
+/* VIDÉO */
 .video-creatrice {
-  width: 100%;
-  max-width: 700px;
+  flex: 1;
+  max-width: 650px;
 }
 
 .video-creatrice video {
   width: 100%;
-  height: 420px;
+  height: 380px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 /* ===== CONTACT ===== */
@@ -150,8 +185,10 @@ section {
   gap: 15px;
 }
 
-#contact input, textarea {
+#contact input,
+#contact textarea {
   padding: 10px;
+  border: 1px solid #ccc;
 }
 
 /* ===== FOOTER ===== */
@@ -165,16 +202,16 @@ footer {
 @media (max-width: 768px) {
   nav ul {
     display: none;
+  }
+
+  nav ul.active {
+    display: flex;
     flex-direction: column;
     background: white;
     position: absolute;
     top: 70px;
     right: 20px;
     padding: 15px;
-  }
-
-  nav ul.active {
-    display: flex;
   }
 
   .burger {
