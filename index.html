@@ -13,7 +13,7 @@
   <nav>
     <h1>Éclat d’Or ✨</h1>
 
-    <ul>
+    <ul id="nav-menu">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#produit">Produits</a></li>
       <li><a href="#apropos">À propos</a></li>
@@ -49,35 +49,34 @@
   <h2>Nos Produits</h2>
 
   <div class="produits">
-    <a class="produit" href="produit.html?id=creme-hydratante">
+    <a class="produit" href="#">
       <img src="images/creme-hydra.png" alt="Crème Hydratante">
       <h3>Crème Hydratante</h3>
-      <p>Hydratation profonde – 80 €</p>
+      <p>80 €</p>
     </a>
 
-    <a class="produit" href="produit.html?id=serum-eclat">
+    <a class="produit" href="#">
       <img src="images/serum-eclat.jpg" alt="Sérum Éclat">
       <h3>Sérum Éclat</h3>
-      <p>Teint lumineux – 95 €</p>
+      <p>95 €</p>
     </a>
 
-    <a class="produit" href="produit.html?id=huile-precieuse">
+    <a class="produit" href="#">
       <img src="images/huile-precieuse.jpg" alt="Huile Précieuse">
       <h3>Huile Précieuse</h3>
-      <p>Fini satiné – 120 €</p>
+      <p>120 €</p>
     </a>
 
-    <a class="produit" href="produit.html?id=creme-antiage">
-      <img src="images/creme-contour-yeux.png" alt="Crème Anti-Âge">
+    <a class="produit" href="#">
+      <img src="images/creme-contour-yeux.png" alt="Crème Anti-âge">
       <h3>Crème Anti-Âge</h3>
-      <p>Régénération intense – 210 €</p>
+      <p>210 €</p>
     </a>
   </div>
 </section>
 
 <!-- ===== À PROPOS + VIDÉO ===== -->
 <section id="apropos" class="section-apropos">
-
   <div class="apropos-wrapper">
 
     <div class="contenu-apropos">
@@ -89,8 +88,7 @@
       </p>
 
       <p>
-        Chaque soin est pensé pour sublimer la peau tout en respectant
-        l’équilibre naturel.
+        Chaque soin est pensé pour sublimer la peau tout en respectant son équilibre.
       </p>
 
       <div class="photo-creatrice-wrapper">
@@ -98,7 +96,6 @@
       </div>
     </div>
 
-    <!-- VIDÉO CRÉATRICE -->
     <div class="video-creatrice">
       <video controls muted loop playsinline preload="auto">
         <source src="videos/goutte.mp4" type="video/mp4">
@@ -107,7 +104,6 @@
     </div>
 
   </div>
-
 </section>
 
 <!-- ===== CONTACT ===== -->
@@ -122,26 +118,52 @@
   </form>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
 </footer>
 
-<!-- ===== JS ===== -->
+<!-- ===== JS BURGER + PANIER ===== -->
 <script>
 const burger = document.getElementById("burger");
-const nav = document.querySelector("nav ul");
+const nav = document.getElementById("nav-menu");
 
 burger.addEventListener("click", () => {
   nav.classList.toggle("active");
+  burger.classList.toggle("active");
 });
 
 function updatePanierCount() {
   const panier = JSON.parse(localStorage.getItem("panier")) || [];
-  document.getElementById("panier-count").textContent = panier.length;
+  const counter = document.getElementById("panier-count");
+  if (counter) counter.textContent = panier.length;
 }
 
 updatePanierCount();
+</script>
+
+<!-- ===== JS ANIMATION SCROLL (OPTION 2) ===== -->
+<script>
+const sections = document.querySelectorAll("section");
+
+function revealOnScroll() {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight - 100;
+
+    if (top < triggerPoint) {
+      section.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (sections.length > 0) {
+    sections[0].classList.add("visible");
+  }
+  revealOnScroll();
+});
 </script>
 
 </body>
