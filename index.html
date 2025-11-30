@@ -1,125 +1,119 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Éclat d’Or – Cosmétiques de luxe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Éclat d’Or ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <header>
-  <nav>
-    <h1>Éclat d’Or ✨</h1>
+    <nav>
+        <h1>Éclat d’Or ✨</h1>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produit">Produits</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#contact">Contact & Avis</a></li>
+        </ul>
 
-    <ul>
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#produit">Produits</a></li>
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#contact">Contact & Avis</a></li>
-      <li><a href="panier.html" class="panier-icon">🛍️ <span id="panier-count">0</span></a></li>
-    </ul>
+        <div class="panier-icon">
+            <span>🔒</span>
+            <span class="panier-count">0</span>
+        </div>
 
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </nav>
+        <div class="burger">
+            <div></div><div></div><div></div>
+        </div>
+    </nav>
 </header>
 
-
-<!-- ===== ACCUEIL ===== -->
+<!-- ==================== ACCUEIL ==================== -->
 <section id="accueil">
-  <div class="content">
-    <h2>Éclat d’Or</h2>
-    <p>L’alchimie du luxe et de la nature.</p>
-    <a href="#produit"><button class="btn">Voir nos produits</button></a>
-  </div>
+    <div class="content">
+        <h2>La Beauté Naturelle & Raffinée</h2>
+        <p>Des soins luxueux, conçus avec passion pour sublimer votre éclat.</p>
+        <a href="#produit" class="btn">Découvrir les produits</a>
+    </div>
 </section>
 
-
-<!-- ===== PRODUITS ===== -->
+<!-- ==================== PRODUITS ==================== -->
 <section id="produit">
-  <h2>Nos Produits</h2>
+    <h2>Nos Produits</h2>
 
-  <div class="produits">
-    <a class="produit" href="#">
-      <img src="images/creme-hydra.png">
-      <h3>Crème Hydratante</h3>
-      <p>80 €</p>
-    </a>
+    <div class="produits">
 
-    <a class="produit" href="#">
-      <img src="images/serum-eclat.jpg">
-      <h3>Sérum Éclat</h3>
-      <p>95 €</p>
-    </a>
+        <a href="#" class="produit">
+            <img src="images/produit1.jpg" alt="Produit 1">
+            <h3>Huile Élixir</h3>
+            <p>Nutrition intense & éclat immédiat.</p>
+        </a>
 
-    <a class="produit" href="#">
-      <img src="images/huile-precieuse.jpg">
-      <h3>Huile Précieuse</h3>
-      <p>120 €</p>
-    </a>
+        <a href="#" class="produit">
+            <img src="images/produit2.jpg" alt="Produit 2">
+            <h3>Crème Royale</h3>
+            <p>Hydratation profonde, fini soyeux.</p>
+        </a>
 
-    <a class="produit" href="#">
-      <img src="images/creme-contour-yeux.png">
-      <h3>Crème Anti-Âge</h3>
-      <p>210 €</p>
-    </a>
-  </div>
+        <a href="#" class="produit">
+            <img src="images/produit3.jpg" alt="Produit 3">
+            <h3>Sérum Lumière</h3>
+            <p>Anti-âge & boost d’éclat.</p>
+        </a>
+
+        <a href="#" class="produit">
+            <img src="images/produit4.jpg" alt="Produit 4">
+            <h3>Brume Dorée</h3>
+            <p>Hydratation fraîcheur minute.</p>
+        </a>
+
+    </div>
 </section>
 
-
-<!-- ===== À PROPOS ===== -->
+<!-- ==================== À PROPOS ==================== -->
 <section id="apropos" class="section-apropos">
-  <div class="apropos-wrapper">
+    <h2 class="titre-apropos">À propos</h2>
 
-    <div class="contenu-apropos">
-      <h2>La Créatrice</h2>
-      <p>Derrière Éclat d’Or, Romane imagine des soins naturels et luxueux.</p>
+    <p class="texte-apropos">
+        Je suis Lina, créatrice d’Éclat d’Or.  
+        Ma passion : créer des soins naturels, élégants et efficaces,
+        conçus pour sublimer votre beauté en douceur.
+    </p>
 
-      <div class="photo-creatrice-wrapper">
-        <img src="images/romane.jpg" class="photo-creatrice">
-      </div>
+    <div class="photo-creatrice-wrapper">
+        <img src="images/creatrice.jpg" alt="Créatrice" class="photo-creatrice">
     </div>
 
-    <div class="video-creatrice">
-      <video controls muted loop playsinline preload="auto">
-        <source src="videos/goutte.mp4" type="video/mp4">
-      </video>
-    </div>
+    <br><br>
 
-  </div>
+    <!-- VIDEO DE LA CREATRICE -->
+    <div style="display:flex; justify-content:center; margin-top:20px;">
+        <video width="400" controls style="border-radius:12px;">
+            <source src="video/creatrice.mp4" type="video/mp4">
+            Vidéo non supportée.
+        </video>
+    </div>
 </section>
 
-
-<!-- ===== CONTACT ===== -->
+<!-- ==================== CONTACT ==================== -->
 <section id="contact">
-  <h2>Contact</h2>
+    <h2>Contact & Avis</h2>
 
-  <form>
-    <input type="text" placeholder="Nom" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Message"></textarea>
-    <button class="btn">Envoyer</button>
-  </form>
+    <form>
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre email" required>
+        <textarea rows="5" placeholder="Votre message"></textarea>
+        <button class="btn">Envoyer</button>
+    </form>
 </section>
-
 
 <footer>
-  <p>© 2025 Éclat d’Or</p>
+    © 2025 Éclat d’Or — Tous droits réservés.
 </footer>
 
-
-<script>
-const burger = document.getElementById("burger");
-const nav = document.querySelector("nav ul");
-
-burger.addEventListener("click", () => {
-  nav.classList.toggle("active");
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
