@@ -11,69 +11,64 @@
 <header>
   <nav>
     <h1>Éclat d’Or ✨</h1>
-    <ul id="nav-menu">
+    <ul>
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#produit">Produits</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="burger" id="burger">
-      <div></div><div></div><div></div>
-    </div>
   </nav>
 </header>
 
-<!-- ===== HERO ===== -->
-<section id="accueil" class="reveal">
+<!-- HERO -->
+<section id="accueil">
   <div class="content">
     <h2>Éclat d’Or</h2>
     <p>L’alchimie du luxe et de la nature.</p>
-    <a href="#produit"><button class="btn">Voir nos produits</button></a>
+    <a href="#produit" class="btn">Voir nos produits</a>
   </div>
 </section>
 
-<!-- ===== PRODUITS ===== -->
-<section id="produit" class="reveal">
+<!-- PRODUITS -->
+<section id="produit">
   <h2>Nos Produits</h2>
 
   <div class="produits">
-    <a class="produit" href="#">
-      <img src="images/creme-hydra.png">
+
+    <a class="produit" href="produit.html?id=creme-hydratante">
+      <img src="images/creme-hydra.png" alt="Crème Hydratante">
       <h3>Crème Hydratante</h3>
       <p>80 €</p>
     </a>
 
-    <a class="produit" href="#">
-      <img src="images/serum-eclat.jpg">
+    <a class="produit" href="produit.html?id=serum-eclat">
+      <img src="images/serum-eclat.jpg" alt="Sérum Éclat">
       <h3>Sérum Éclat</h3>
       <p>95 €</p>
     </a>
 
-    <a class="produit" href="#">
-      <img src="images/huile-precieuse.jpg">
+    <a class="produit" href="produit.html?id=huile-precieuse">
+      <img src="images/huile-precieuse.jpg" alt="Huile Précieuse">
       <h3>Huile Précieuse</h3>
       <p>120 €</p>
     </a>
 
-    <a class="produit" href="#">
-      <img src="images/creme-contour-yeux.png">
+    <a class="produit" href="produit.html?id=creme-antiage">
+      <img src="images/creme-anti-age.jpg" alt="Crème Anti-Âge">
       <h3>Crème Anti-Âge</h3>
       <p>210 €</p>
     </a>
+
   </div>
 </section>
 
-<!-- ===== CRÉATRICE / BANDEAU ===== -->
-<section id="apropos" class="section-apropos reveal">
+<!-- CRÉATRICE -->
+<section id="apropos" class="section-apropos">
   <div class="apropos-wrapper">
 
     <div class="contenu-apropos">
-      <h2 class="titre-apropos">La Créatrice</h2>
-
-      <p class="texte-apropos">
-        Derrière Éclat d’Or se cache Romane, passionnée par la science,
-        la beauté et la naturalité.
-      </p>
+      <h2>La Créatrice</h2>
+      <p>Derrière Éclat d’Or, Romane imagine des soins naturels et luxueux.</p>
 
       <div class="photo-creatrice-wrapper">
         <img src="images/romane.jpg" class="photo-creatrice">
@@ -81,7 +76,7 @@
     </div>
 
     <div class="video-creatrice">
-      <video controls muted loop playsinline preload="auto">
+      <video controls muted loop>
         <source src="videos/goutte.mp4" type="video/mp4">
       </video>
     </div>
@@ -89,48 +84,21 @@
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="reveal">
+<!-- CONTACT -->
+<section id="contact">
   <h2>Contact</h2>
 
   <form>
     <input type="text" placeholder="Nom" required>
     <input type="email" placeholder="Email" required>
     <textarea placeholder="Message"></textarea>
-    <button class="btn">Envoyer</button>
+    <button class="btn" type="submit">Envoyer</button>
   </form>
 </section>
 
 <footer>
   <p>© 2025 Éclat d’Or</p>
 </footer>
-
-<!-- ===== JS ANIMATIONS + BURGER ===== -->
-<script>
-const burger = document.getElementById("burger");
-const nav = document.getElementById("nav-menu");
-
-burger.addEventListener("click", () => {
-  nav.classList.toggle("active");
-  burger.classList.toggle("active");
-});
-
-// Animation au scroll
-const reveals = document.querySelectorAll(".reveal");
-
-function revealOnScroll() {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if (top < windowHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-</script>
 
 </body>
 </html>
