@@ -1,119 +1,148 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Éclat d’Or ✨</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Éclat d’Or – Cosmétiques de luxe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <nav>
-        <h1>Éclat d’Or ✨</h1>
-        <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#produit">Produits</a></li>
-            <li><a href="#apropos">À propos</a></li>
-            <li><a href="#contact">Contact & Avis</a></li>
-        </ul>
+  <nav>
+    <h1>Éclat d’Or ✨</h1>
 
-        <div class="panier-icon">
-            <span>🔒</span>
-            <span class="panier-count">0</span>
-        </div>
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#produit">Produits</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#contact">Contact & Avis</a></li>
+      <li>
+        <a href="panier.html" class="panier-icon">
+          🛍️ <span class="panier-count" id="panier-count">0</span>
+        </a>
+      </li>
+    </ul>
 
-        <div class="burger">
-            <div></div><div></div><div></div>
-        </div>
-    </nav>
+    <div class="burger" id="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
 </header>
 
-<!-- ==================== ACCUEIL ==================== -->
+<!-- ===== ACCUEIL ===== -->
 <section id="accueil">
-    <div class="content">
-        <h2>La Beauté Naturelle & Raffinée</h2>
-        <p>Des soins luxueux, conçus avec passion pour sublimer votre éclat.</p>
-        <a href="#produit" class="btn">Découvrir les produits</a>
-    </div>
+  <div class="content">
+    <h2>Éclat d’Or</h2>
+    <p>L’alchimie du luxe et de la nature.</p>
+    <a href="#produit">
+      <button class="btn">Voir nos produits</button>
+    </a>
+  </div>
 </section>
 
-<!-- ==================== PRODUITS ==================== -->
+<!-- ===== PRODUITS ===== -->
 <section id="produit">
-    <h2>Nos Produits</h2>
+  <h2>Nos Produits</h2>
 
-    <div class="produits">
+  <div class="produits">
+    <a class="produit" href="produit.html?id=creme-hydratante">
+      <img src="images/creme-hydra.png" alt="Crème Hydratante">
+      <h3>Crème Hydratante</h3>
+      <p>Hydratation profonde – 80 €</p>
+    </a>
 
-        <a href="#" class="produit">
-            <img src="images/produit1.jpg" alt="Produit 1">
-            <h3>Huile Élixir</h3>
-            <p>Nutrition intense & éclat immédiat.</p>
-        </a>
+    <a class="produit" href="produit.html?id=serum-eclat">
+      <img src="images/serum-eclat.jpg" alt="Sérum Éclat">
+      <h3>Sérum Éclat</h3>
+      <p>Teint lumineux – 95 €</p>
+    </a>
 
-        <a href="#" class="produit">
-            <img src="images/produit2.jpg" alt="Produit 2">
-            <h3>Crème Royale</h3>
-            <p>Hydratation profonde, fini soyeux.</p>
-        </a>
+    <a class="produit" href="produit.html?id=huile-precieuse">
+      <img src="images/huile-precieuse.jpg" alt="Huile Précieuse">
+      <h3>Huile Précieuse</h3>
+      <p>Fini satiné – 120 €</p>
+    </a>
 
-        <a href="#" class="produit">
-            <img src="images/produit3.jpg" alt="Produit 3">
-            <h3>Sérum Lumière</h3>
-            <p>Anti-âge & boost d’éclat.</p>
-        </a>
-
-        <a href="#" class="produit">
-            <img src="images/produit4.jpg" alt="Produit 4">
-            <h3>Brume Dorée</h3>
-            <p>Hydratation fraîcheur minute.</p>
-        </a>
-
-    </div>
+    <a class="produit" href="produit.html?id=creme-antiage">
+      <img src="images/creme-contour-yeux.png" alt="Crème Anti-Âge">
+      <h3>Crème Anti-Âge</h3>
+      <p>Régénération intense – 210 €</p>
+    </a>
+  </div>
 </section>
 
-<!-- ==================== À PROPOS ==================== -->
+<!-- ===== À PROPOS + VIDÉO ===== -->
 <section id="apropos" class="section-apropos">
-    <h2 class="titre-apropos">À propos</h2>
 
-    <p class="texte-apropos">
-        Je suis Lina, créatrice d’Éclat d’Or.  
-        Ma passion : créer des soins naturels, élégants et efficaces,
-        conçus pour sublimer votre beauté en douceur.
-    </p>
+  <div class="apropos-wrapper">
 
-    <div class="photo-creatrice-wrapper">
-        <img src="images/creatrice.jpg" alt="Créatrice" class="photo-creatrice">
+    <div class="contenu-apropos">
+      <h2>La Créatrice</h2>
+
+      <p>
+        Derrière <strong>Éclat d’Or</strong>, se cache <strong>Romane</strong>,
+        passionnée par l’alliance de la science et de la beauté naturelle.
+      </p>
+
+      <p>
+        Chaque soin est pensé pour sublimer la peau tout en respectant
+        l’équilibre naturel.
+      </p>
+
+      <div class="photo-creatrice-wrapper">
+        <img src="images/romane.jpg" alt="Romane" class="photo-creatrice">
+      </div>
     </div>
 
-    <br><br>
-
-    <!-- VIDEO DE LA CREATRICE -->
-    <div style="display:flex; justify-content:center; margin-top:20px;">
-        <video width="400" controls style="border-radius:12px;">
-            <source src="video/creatrice.mp4" type="video/mp4">
-            Vidéo non supportée.
-        </video>
+    <!-- VIDÉO CRÉATRICE -->
+    <div class="video-creatrice">
+      <video controls muted loop playsinline preload="auto">
+        <source src="videos/goutte.mp4" type="video/mp4">
+        Ton navigateur ne supporte pas la vidéo.
+      </video>
     </div>
+
+  </div>
+
 </section>
 
-<!-- ==================== CONTACT ==================== -->
+<!-- ===== CONTACT ===== -->
 <section id="contact">
-    <h2>Contact & Avis</h2>
+  <h2>Contact & Avis</h2>
 
-    <form>
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <textarea rows="5" placeholder="Votre message"></textarea>
-        <button class="btn">Envoyer</button>
-    </form>
+  <form>
+    <input type="text" placeholder="Votre nom" required>
+    <input type="email" placeholder="Votre e-mail" required>
+    <textarea rows="5" placeholder="Votre message ou avis" required></textarea>
+    <button class="btn" type="submit">Envoyer</button>
+  </form>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-    © 2025 Éclat d’Or — Tous droits réservés.
+  <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
 </footer>
 
-<script src="script.js"></script>
+<!-- ===== JS ===== -->
+<script>
+const burger = document.getElementById("burger");
+const nav = document.querySelector("nav ul");
+
+burger.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+function updatePanierCount() {
+  const panier = JSON.parse(localStorage.getItem("panier")) || [];
+  document.getElementById("panier-count").textContent = panier.length;
+}
+
+updatePanierCount();
+</script>
+
 </body>
 </html>
