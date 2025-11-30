@@ -143,5 +143,98 @@ section {
 
 /* ---- À PROPOS + VIDÉO ---- */
 .section-apropos {
-  background-colo
+  background-color: #fdf7f0;
+}
 
+.apropos-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* ---- IMAGE CRÉATRICE ---- */
+.photo-creatrice-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.photo-creatrice {
+  width: 220px;
+  height: 220px;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 4px solid #c8a951;
+}
+
+/* ---- VIDÉO ---- */
+.video-creatrice {
+  flex: 1;
+  max-width: 500px;
+  min-height: 280px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-creatrice video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* ---- CONTACT ---- */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+#contact input,
+#contact textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #faf7f0;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .apropos-wrapper {
+    flex-direction: column;
+  }
+
+  .photo-creatrice {
+    width: 150px;
+    height: 150px;
+  }
+
+  .video-creatrice {
+    max-width: 100%;
+  }
+}
