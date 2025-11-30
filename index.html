@@ -75,31 +75,31 @@
   </div>
 </section>
 
-<!-- ===== À PROPOS + VIDÉO ===== -->
+<!-- ===== À PROPOS : TEXTE + IMAGE + VIDÉO ===== -->
 <section id="apropos" class="section-apropos">
   <div class="apropos-wrapper">
 
+    <!-- TEXTE -->
     <div class="contenu-apropos">
       <h2>La Créatrice</h2>
-
       <p>
         Derrière <strong>Éclat d’Or</strong>, se cache <strong>Romane</strong>,
         passionnée par l’alliance de la science et de la beauté naturelle.
       </p>
-
       <p>
         Chaque soin est pensé pour sublimer la peau tout en respectant son équilibre.
       </p>
-
-      <div class="photo-creatrice-wrapper">
-        <img src="images/romane.jpg" alt="Romane" class="photo-creatrice">
-      </div>
     </div>
 
+    <!-- IMAGE AU MILIEU -->
+    <div class="photo-creatrice-wrapper">
+      <img src="images/romane.jpg" alt="Romane" class="photo-creatrice">
+    </div>
+
+    <!-- VIDÉO À DROITE -->
     <div class="video-creatrice">
       <video controls muted loop playsinline preload="auto">
         <source src="videos/goutte.mp4" type="video/mp4">
-        Ton navigateur ne supporte pas la vidéo.
       </video>
     </div>
 
@@ -122,7 +122,7 @@
   <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
 </footer>
 
-<!-- ===== JS BURGER + PANIER ===== -->
+<!-- ===== JS MENU + PANIER ===== -->
 <script>
 const burger = document.getElementById("burger");
 const nav = document.getElementById("nav-menu");
@@ -137,11 +137,10 @@ function updatePanierCount() {
   const counter = document.getElementById("panier-count");
   if (counter) counter.textContent = panier.length;
 }
-
 updatePanierCount();
 </script>
 
-<!-- ===== JS ANIMATION SCROLL (OPTION 2) ===== -->
+<!-- ===== JS ANIMATION SCROLL ===== -->
 <script>
 const sections = document.querySelectorAll("section");
 
