@@ -11,18 +11,20 @@
 <header>
   <nav>
     <h1>Éclat d’Or ✨</h1>
-
-    <ul>
+    <ul id="nav-menu">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#produit">Produits</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="burger" id="burger">
+      <div></div><div></div><div></div>
+    </div>
   </nav>
 </header>
 
-<!-- ===== ACCUEIL ===== -->
-<section id="accueil">
+<!-- ===== HERO ===== -->
+<section id="accueil" class="reveal">
   <div class="content">
     <h2>Éclat d’Or</h2>
     <p>L’alchimie du luxe et de la nature.</p>
@@ -31,7 +33,7 @@
 </section>
 
 <!-- ===== PRODUITS ===== -->
-<section id="produit">
+<section id="produit" class="reveal">
   <h2>Nos Produits</h2>
 
   <div class="produits">
@@ -61,13 +63,17 @@
   </div>
 </section>
 
-<!-- ===== À PROPOS ===== -->
-<section id="apropos" class="section-apropos">
+<!-- ===== CRÉATRICE / BANDEAU ===== -->
+<section id="apropos" class="section-apropos reveal">
   <div class="apropos-wrapper">
 
     <div class="contenu-apropos">
-      <h2>La Créatrice</h2>
-      <p>Derrière Éclat d’Or, Romane imagine des soins naturels et luxueux.</p>
+      <h2 class="titre-apropos">La Créatrice</h2>
+
+      <p class="texte-apropos">
+        Derrière Éclat d’Or se cache Romane, passionnée par la science,
+        la beauté et la naturalité.
+      </p>
 
       <div class="photo-creatrice-wrapper">
         <img src="images/romane.jpg" class="photo-creatrice">
@@ -84,7 +90,7 @@
 </section>
 
 <!-- ===== CONTACT ===== -->
-<section id="contact">
+<section id="contact" class="reveal">
   <h2>Contact</h2>
 
   <form>
@@ -98,6 +104,33 @@
 <footer>
   <p>© 2025 Éclat d’Or</p>
 </footer>
+
+<!-- ===== JS ANIMATIONS + BURGER ===== -->
+<script>
+const burger = document.getElementById("burger");
+const nav = document.getElementById("nav-menu");
+
+burger.addEventListener("click", () => {
+  nav.classList.toggle("active");
+  burger.classList.toggle("active");
+});
+
+// Animation au scroll
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (top < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
 
 </body>
 </html>
