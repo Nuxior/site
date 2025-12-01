@@ -11,30 +11,36 @@
 <header>
   <nav>
     <h1>Éclat d’Or ✨</h1>
+
     <ul>
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#produit">Produits</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+
+    <div class="burger" id="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </nav>
 </header>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section id="accueil">
   <div class="content">
     <h2>Éclat d’Or</h2>
     <p>L’alchimie du luxe et de la nature.</p>
-    <a href="#produit" class="btn">Voir nos produits</a>
+    <a href="#produit"><button class="btn">Voir nos produits</button></a>
   </div>
 </section>
 
-<!-- PRODUITS -->
+<!-- ===== PRODUITS ===== -->
 <section id="produit">
-  <h2>Nos Produits</h2>
+  <h2 class="titre-section">Nos Produits</h2>
 
   <div class="produits">
-
     <a class="produit" href="produit.html?id=creme-hydratante">
       <img src="images/creme-hydra.png" alt="Crème Hydratante">
       <h3>Crème Hydratante</h3>
@@ -54,15 +60,14 @@
     </a>
 
     <a class="produit" href="produit.html?id=creme-antiage">
-      <img src="images/creme-anti-age.jpg" alt="Crème Anti-Âge">
+      <img src="images/Eclat d'or - Photo crème anti.jpg" alt="Crème Anti-Âge">
       <h3>Crème Anti-Âge</h3>
       <p>210 €</p>
     </a>
-
   </div>
 </section>
 
-<!-- CRÉATRICE -->
+<!-- ===== CRÉATRICE ===== -->
 <section id="apropos" class="section-apropos">
   <div class="apropos-wrapper">
 
@@ -76,7 +81,7 @@
     </div>
 
     <div class="video-creatrice">
-      <video controls muted loop>
+      <video controls autoplay muted loop playsinline>
         <source src="videos/goutte.mp4" type="video/mp4">
       </video>
     </div>
@@ -84,21 +89,30 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ===== CONTACT ===== -->
 <section id="contact">
-  <h2>Contact</h2>
+  <h2 class="titre-section">Contact</h2>
 
   <form>
     <input type="text" placeholder="Nom" required>
     <input type="email" placeholder="Email" required>
     <textarea placeholder="Message"></textarea>
-    <button class="btn" type="submit">Envoyer</button>
+    <button class="btn">Envoyer</button>
   </form>
 </section>
 
 <footer>
   <p>© 2025 Éclat d’Or</p>
 </footer>
+
+<script>
+const burger = document.getElementById("burger");
+const nav = document.querySelector("nav ul");
+
+burger.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
