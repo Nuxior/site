@@ -1,290 +1,228 @@
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détail du produit – Éclat d’Or</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-html {
-  scroll-behavior: smooth;
-}
+  <!-- Fonts comme la page d’accueil -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-body {
-  background: #fffefc;
-  color: #111;
-}
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #fffdf9;
+      color: #111;
+    }
 
-/* ================= HEADER ================= */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-  z-index: 1000;
-}
+    /* ===== HEADER IDENTIQUE À L’ACCUEIL ===== */
+    header {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
 
-nav {
-  padding: 16px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-nav h1 {
-  color: #c8a951;
-  font-weight: bold;
-  font-size: 26px;
-}
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #d4af37;
+    }
 
-nav ul {
-  display: flex;
-  gap: 35px;
-  list-style: none;
-}
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
 
-nav ul li a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  transition: 0.3s;
-}
+    /* ===== PRODUIT ===== */
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
 
-nav ul li a:hover {
-  color: #c8a951;
-}
+    main img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
 
-.burger {
-  display: none;
-}
+    .info h2 {
+      color: #d4af37;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
 
-/* ================= HERO ================= */
-#accueil {
-  height: 100vh;
-  background: linear-gradient(to bottom, #fffefc, #f4efe7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 120px;
-  text-align: center;
-}
+    .info p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
 
-#accueil h2 {
-  font-size: 60px;
-  color: #c8a951;
-  margin-bottom: 25px;
-  animation: fadeUp 1s ease;
-}
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
 
-#accueil p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  animation: fadeUp 1.3s ease;
-}
+    .btn {
+      background: linear-gradient(135deg, #d4af37, #b8962e);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
 
-.btn {
-  background: linear-gradient(135deg, #c8a951, #b5983e);
-  color: white;
-  padding: 14px 34px;
-  border-radius: 35px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-  box-shadow: 0 6px 15px rgba(200,169,81,0.4);
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.4);
+    }
 
-.btn:hover {
-  transform: scale(1.05);
-}
+    footer {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
 
-/* ================= PRODUITS ================= */
-#produit {
-  padding: 120px 8%;
-  text-align: center;
-}
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
 
-.titre-section {
-  font-size: 36px;
-  color: #c8a951;
-  margin-bottom: 60px;
-}
+<body>
 
-.produits {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 45px;
-}
+<header>
+  <nav>
+    <a href="index.html"><h1>Éclat d’Or ✨</h1></a>
+    <a href="panier.html">🛍 Voir le panier</a>
+  </nav>
+</header>
 
-.produit {
-  background: white;
-  border-radius: 25px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  text-decoration: none;
-  color: inherit;
-  transition: 0.4s;
-}
+<main id="produit-details"></main>
 
-.produit img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 25px;
-  margin-bottom: 15px;
-}
+<footer>
+  <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
+</footer>
 
-.produit:hover {
-  transform: translateY(-10px);
-}
+<script>
+/* ===== BASE PRODUITS ===== */
+const produits = {
+  "creme-hydratante": {
+    nom: "Crème Hydratante – 50 ml",
+    prix: 80,
+    image: "images/creme-hydra.jpg",
+    description: "Une crème d’exception formulée à partir d’ingrédients naturels.",
+    benefices: [
+      "Hydratation profonde 24h",
+      "Texture légère et non grasse",
+      "Teint plus éclatant",
+      "Convient à toutes les peaux"
+    ],
+    ingredients: "Aloe vera bio, acide hyaluronique, fleur d’oranger."
+  },
 
-/* ================= CRÉATRICE ================= */
-.section-apropos {
-  background: linear-gradient(135deg, #111, #222);
-  color: white;
-  padding: 140px 8%;
-}
+  "serum-eclat": {
+    nom: "Sérum Éclat – 30 ml",
+    prix: 95,
+    image: "images/serum-eclat.jpg",
+    description: "Un sérum illuminateur haute performance.",
+    benefices: [
+      "Teint unifié",
+      "Éclat immédiat",
+      "Réduction des taches"
+    ],
+    ingredients: "Vitamine C, pivoine blanche, niacinamide."
+  },
 
-.apropos-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
+  "huile-precieuse": {
+    nom: "Huile Précieuse – 30 ml",
+    prix: 120,
+    image: "images/huile-precieuse.jpg",
+    description: "Une huile luxueuse pour nourrir et sublimer la peau.",
+    benefices: [
+      "Nourrit intensément",
+      "Peau satinée",
+      "Éclat longue durée"
+    ],
+    ingredients: "Huile de figue de barbarie, rose musquée, squalane."
+  },
 
-.contenu-apropos h2 {
-  font-size: 40px;
-  margin-bottom: 30px;
-  color: #c8a951;
-}
-
-.contenu-apropos p {
-  margin-bottom: 25px;
-  line-height: 1.7;
-}
-
-.photo-creatrice-wrapper {
-  margin-top: 25px;
-}
-
-.photo-creatrice {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 6px solid #c8a951;
-}
-
-.video-creatrice video {
-  width: 380px;
-  border-radius: 25px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-}
-
-/* ================= CONTACT ================= */
-#contact {
-  padding: 120px 8%;
-  text-align: center;
-}
-
-#contact form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-#contact input, 
-#contact textarea {
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 25px;
-}
-
-/* ================= PAGE PRODUIT ================= */
-#produit-details {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 70px;
-  padding: 160px 10% 100px;
-  flex-wrap: wrap;
-}
-
-#produit-details img {
-  width: 420px;
-  max-width: 95%;
-  border-radius: 30px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-  transition: 0.4s;
-}
-
-#produit-details img:hover {
-  transform: scale(1.03);
-}
-
-#produit-details .info {
-  max-width: 520px;
-}
-
-#produit-details h2 {
-  color: #c8a951;
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-#produit-details p {
-  margin-bottom: 15px;
-  line-height: 1.7;
-  color: #444;
-}
-
-#produit-details ul {
-  padding-left: 20px;
-  margin-bottom: 20px;
-}
-
-#produit-details .btn {
-  margin-top: 25px;
-}
-
-/* ================= ANIMATIONS ================= */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+  "creme-antiage": {
+    nom: "Crème Anti-Âge – 50 ml",
+    prix: 210,
+    image: "images/creme-antiage.jpg",
+    description: "Soin anti-âge haute performance.",
+    benefices: [
+      "Rides réduites",
+      "Peau raffermie",
+      "Teint lissé"
+    ],
+    ingredients: "Bakuchiol, peptides, huile d’argan."
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+};
+
+/* ===== RÉCUPÉRATION ID ===== */
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const produit = produits[id];
+const container = document.getElementById("produit-details");
+
+/* ===== AFFICHAGE ===== */
+if (produit) {
+  container.innerHTML = `
+    <img src="${produit.image}" alt="${produit.nom}">
+    <div class="info">
+      <h2>${produit.nom}</h2>
+      <p>${produit.description}</p>
+
+      <p><strong>Bénéfices :</strong></p>
+      <ul>
+        ${produit.benefices.map(b => `<li>${b}</li>`).join("")}
+      </ul>
+
+      <p><strong>Ingrédients :</strong> ${produit.ingredients}</p>
+      <p><strong>Prix :</strong> ${produit.prix} €</p>
+
+      <button class="btn" onclick="ajouterAuPanier('${id}')">
+        Ajouter au panier
+      </button>
+    </div>
+  `;
+} else {
+  container.innerHTML = "<p>Produit introuvable.</p>";
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-  .apropos-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .video-creatrice video {
-    width: 100%;
-  }
-
-  nav ul {
-    display: none;
-  }
-
-  .burger {
-    display: block;
-  }
+/* ===== PANIER SANS ALERTE ✅ ===== */
+function ajouterAuPanier(id) {
+  const panier = JSON.parse(localStorage.getItem("panier")) || [];
+  panier.push(produits[id]);
+  localStorage.setItem("panier", JSON.stringify(panier));
+  // ✅ Aucune alerte ici
 }
+</script>
+
+</body>
+</html>
