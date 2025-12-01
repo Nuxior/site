@@ -42,6 +42,7 @@ nav a {
   display: none;
   flex-direction: column;
   gap: 4px;
+  cursor: pointer;
 }
 
 .burger div {
@@ -62,27 +63,39 @@ section {
 }
 
 /* ===== HERO ===== */
-#accueil {␊
-  min-height: 100vh;␊
-  display: flex;␊
-  align-items: center;␊
-  justify-content: center;␊
-  text-align: center;␊
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('images/branding.jpg') center/cover no-repeat;
-  color: white;␊
-}␊
+#accueil {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.55)
+  ),
+  url("images/branding.jpg") center/cover no-repeat;
+  color: white;
+}
+
 #accueil h2 {
   font-size: 48px;
 }
 
+/* ===== BOUTON OR ===== */
 .btn {
   margin-top: 20px;
   padding: 12px 28px;
   border: none;
   border-radius: 25px;
-  background: gold;
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  color: white;
   cursor: pointer;
   font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 /* ===== PRODUITS ===== */
@@ -94,10 +107,12 @@ section {
 
 .produit {
   border: 1px solid #ccc;
+  border-radius: 12px;
   text-align: center;
   padding-bottom: 15px;
   text-decoration: none;
   color: inherit;
+  background: white;
 }
 
 .produit img {
@@ -194,4 +209,3 @@ footer {
     height: 300px;
   }
 }
-
