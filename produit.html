@@ -35,14 +35,18 @@
       margin: 0;
     }
 
+    a {
+      text-decoration: none;
+      color: #111;
+    }
+
     main {
       padding: 3rem 10%;
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 3rem;
       align-items: center;
       justify-content: center;
-      min-height: 60vh;
     }
 
     img {
@@ -58,21 +62,30 @@
 
     .info h2 {
       color: #c8a951;
-      font-family: "Playfair Display", serif;
       margin-bottom: 1rem;
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+    }
+
+    .info p {
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+      color: #444;
     }
 
     ul {
-      margin-left: 1.2rem;
+      margin: 0.5rem 0 1rem 1.2rem;
+      color: #555;
     }
 
     .btn {
       background: linear-gradient(135deg, #c8a951, #b5983e);
       color: #fff;
-      padding: 0.8rem 1.5rem;
+      padding: 0.8rem 1.8rem;
       border: none;
       border-radius: 30px;
       cursor: pointer;
+      font-size: 15px;
       margin-top: 1rem;
     }
 
@@ -81,7 +94,7 @@
       padding: 1rem;
       background: #111;
       color: #fff;
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
   </style>
 </head>
@@ -100,18 +113,17 @@
 </footer>
 
 <script>
-/* ===== BASE DE PRODUITS CORRIGÉE ===== */
 const produits = {
   "creme-hydratante": {
     nom: "Crème Hydratante – 50 ml",
     prix: 80,
     image: "images/creme-hydra.png",
-    description: "Une crème hydratante d’exception formulée à partir d’ingrédients naturels.",
+    description: "Une crème hydratante d’exception, formulée à partir d’ingrédients d’origine naturelle.",
     benefices: [
-      "Hydratation 24h",
-      "Texture légère",
-      "Teint éclatant",
-      "Peaux sensibles"
+      "Hydratation profonde 24h",
+      "Texture légère et non grasse",
+      "Teint plus éclatant",
+      "Convient à toutes les peaux"
     ],
     ingredients: "Aloe vera bio, acide hyaluronique, fleur d’oranger."
   },
@@ -120,11 +132,12 @@ const produits = {
     nom: "Sérum Éclat – 30 ml",
     prix: 95,
     image: "images/serum-eclat.jpg",
-    description: "Un sérum ultra-concentré illumine et unifie le teint.",
+    description: "Un sérum ultra-concentré pour réveiller l’éclat naturel de la peau.",
     benefices: [
       "Teint unifié",
       "Éclat immédiat",
-      "Réduction des taches"
+      "Réduction des taches",
+      "Effet bonne mine"
     ],
     ingredients: "Vitamine C, pivoine blanche, niacinamide."
   },
@@ -133,36 +146,36 @@ const produits = {
     nom: "Huile Précieuse – 30 ml",
     prix: 120,
     image: "images/huile-precieuse.jpg",
-    description: "Huile luxueuse nourrissante sans effet gras.",
+    description: "Une huile rare et luxueuse pour nourrir intensément la peau.",
     benefices: [
-      "Nutrition intense",
-      "Peau lissée",
-      "Éclat durable"
+      "Nourrit en profondeur",
+      "Lisse la peau",
+      "Éclat durable",
+      "Fini non gras"
     ],
-    ingredients: "Figue de barbarie, rose musquée, squalane."
+    ingredients: "Figue de barbarie, rose musquée, squalane végétal."
   },
 
   "creme-antiage": {
     nom: "Crème Anti-Âge – 50 ml",
     prix: 210,
     image: "images/creme-antiage.jpg",
-    description: "Crème anti-âge naturelle hautement performante.",
+    description: "Une crème anti-âge hautement performante aux actifs premium.",
     benefices: [
       "Rides réduites",
       "Peau plus ferme",
-      "Effet lissant"
+      "Effet lissant",
+      "Action durable"
     ],
-    ingredients: "Bakuchiol, peptides, huile d’argan."
+    ingredients: "Bakuchiol, peptides naturels, huile d’argan."
   }
 };
 
-/* ===== RÉCUPÉRATION ID URL ===== */
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 const produit = produits[id];
 const container = document.getElementById("produit-details");
 
-/* ===== AFFICHAGE ===== */
 if (produit) {
   container.innerHTML = `
     <img src="${produit.image}" alt="${produit.nom}">
@@ -170,12 +183,12 @@ if (produit) {
       <h2>${produit.nom}</h2>
       <p>${produit.description}</p>
 
-      <h4>Bénéfices :</h4>
+      <p><strong>Bénéfices :</strong></p>
       <ul>
         ${produit.benefices.map(b => `<li>${b}</li>`).join("")}
       </ul>
 
-      <p><strong>Ingrédients :</strong> ${produit.ingredients}</p>
+      <p><strong>Ingrédients :</strong><br>${produit.ingredients}</p>
       <p><strong>Prix :</strong> ${produit.prix} €</p>
 
       <button class="btn" onclick="ajouterAuPanier('${id}')">
@@ -184,15 +197,14 @@ if (produit) {
     </div>
   `;
 } else {
-  container.innerHTML = "<p>Produit introuvable.</p>";
+  container.innerHTML = "<p style='text-align:center'>Produit introuvable.</p>";
 }
 
-/* ===== PANIER ===== */
 function ajouterAuPanier(id) {
   const panier = JSON.parse(localStorage.getItem("panier")) || [];
   panier.push(produits[id]);
   localStorage.setItem("panier", JSON.stringify(panier));
-  alert("Produit ajouté au panier !");
+  alert(`${produits[id].nom} a été ajouté au panier.`);
 }
 </script>
 
