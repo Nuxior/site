@@ -2,84 +2,67 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Détail du produit – Éclat d’Or</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      font-family: "Poppins", sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       background: #fffefc;
-      color: #111;
     }
 
     header {
-      background: rgba(255,255,255,0.98);
-      padding: 1rem 5%;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      background: white;
+      padding: 15px 5%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    header h1 { 
-      font-family: "Playfair Display", serif;
-      color: #c8a951;
-      font-size: 1.8rem;
-      margin: 0;
     }
 
     main {
-      padding: 2rem 10%;
+      padding: 140px 10% 40px;
       display: flex;
+      gap: 40px;
       flex-wrap: wrap;
-      gap: 2rem;
       align-items: center;
       justify-content: center;
+      min-height: 60vh;
     }
 
     img {
-      width: 400px;
-      max-width: 90%;
+      width: 380px;
+      max-width: 100%;
       border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
 
     .info {
-      max-width: 520px;
+      max-width: 500px;
     }
 
-    .info h2 {
+    h2 {
       color: #c8a951;
-      margin-bottom: 1rem;
-      font-family: "Playfair Display", serif;
     }
 
-    ul {
-      margin-left: 1.2rem;
-    }
+    ul { margin-left: 18px; }
 
     .btn {
-      background: linear-gradient(135deg, #c8a951, #b5983e);
-      color: #fff;
-      padding: 12px 26px;
+      margin-top: 15px;
+      padding: 12px 28px;
       border: none;
       border-radius: 30px;
+      background: linear-gradient(135deg, #c8a951, #b5983e);
+      color: white;
       cursor: pointer;
-      margin-top: 15px;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 25px;
       background: #111;
-      color: #fff;
-      margin-top: 3rem;
+      color: white;
     }
   </style>
 </head>
@@ -94,7 +77,7 @@
 <main id="produit-details"></main>
 
 <footer>
-  <p>© 2025 Éclat d’Or – Tous droits réservés.</p>
+  © 2025 Éclat d’Or – Tous droits réservés.
 </footer>
 
 <script>
@@ -103,41 +86,74 @@ const produits = {
     nom: "Crème Hydratante – 50 ml",
     prix: 80,
     image: "images/creme-hydra.png",
-    description: "Une crème hydratante d’exception, formulée à partir d’ingrédients d’origine naturelle.",
-    benefices: [
-      "Hydratation profonde 24h",
-      "Texture légère et non grasse",
-      "Teint plus éclatant",
-      "Convient aux peaux sensibles"
-    ],
-    ingredients: "Aloe vera, acide hyaluronique, fleur d’oranger."
+    description: "Crème naturelle hydratante.",
+    benefices: ["Hydratation 24h", "Peau lumineuse"],
+    ingredients: "Aloe vera, acide hyaluronique"
   },
 
   "serum-eclat": {
     nom: "Sérum Éclat – 30 ml",
     prix: 95,
     image: "images/serum-eclat.jpg",
-    description: "Un sérum ultra-concentré pour raviver l’éclat naturel de la peau.",
-    benefices: [
-      "Teint unifié",
-      "Éclat immédiat",
-      "Réduction des taches"
-    ],
-    ingredients: "Vitamine C, pivoine blanche, niacinamide."
+    description: "Sérum éclatant.",
+    benefices: ["Éclat immédiat"],
+    ingredients: "Vitamine C"
   },
 
   "huile-precieuse": {
     nom: "Huile Précieuse – 30 ml",
     prix: 120,
     image: "images/huile-precieuse.jpg",
-    description: "Huile luxueuse nourrissante sans effet gras.",
-    benefices: [
-      "Nourrit en profondeur",
-      "Lisse la peau",
-      "Éclat naturel"
-    ],
-    ingredients: "Figue de barbarie, rose musquée."
+    description: "Huile nourrissante.",
+    benefices: ["Nourrit la peau"],
+    ingredients: "Rose musquée"
   },
 
   "creme-antiage": {
-    nom: "Crème Anti-Âge – 50 ml"
+    nom: "Crème Anti-Âge – 50 ml",
+    prix: 210,
+    image: "images/creme-antiage.jpg",
+    description: "Crème anti-rides.",
+    benefices: ["Rides réduites"],
+    ingredients: "Bakuchiol"
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+console.log("ID reçu :", id);
+
+const produit = produits[id];
+const container = document.getElementById("produit-details");
+
+if (!produit) {
+  container.innerHTML = "<h2>❌ Produit introuvable</h2><p>ID reçu : " + id + "</p>";
+} else {
+  container.innerHTML = `
+    <img src="${produit.image}">
+    <div class="info">
+      <h2>${produit.nom}</h2>
+      <p>${produit.description}</p>
+
+      <ul>
+        ${produit.benefices.map(b => `<li>${b}</li>`).join("")}
+      </ul>
+
+      <p><strong>Ingrédients :</strong> ${produit.ingredients}</p>
+      <p><strong>Prix :</strong> ${produit.prix} €</p>
+
+      <button class="btn" onclick="ajouterAuPanier('${id}')">Ajouter au panier</button>
+    </div>
+  `;
+}
+
+function ajouterAuPanier(id) {
+  const panier = JSON.parse(localStorage.getItem("panier")) || [];
+  panier.push(produits[id]);
+  localStorage.setItem("panier", JSON.stringify(panier));
+  alert("Produit ajouté au panier !");
+}
+</script>
+
+</body>
+</html>
