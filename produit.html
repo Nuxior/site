@@ -1,64 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détail du produit – Éclat d’Or</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #fffefc;
+      color: #111;
+    }
+
+    header {
+      background: white;
+      padding: 1rem 5%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-family: "Playfair Display", serif;
+      color: #c8a951;
+      margin: 0;
+    }
+
+    main {
+      padding: 3rem 10%;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      min-height: 60vh;
+    }
+
+    img {
+      width: 380px;
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .info {
+      max-width: 450px;
+    }
+
+    .info h2 {
+      color: #c8a951;
+      font-family: "Playfair Display", serif;
+    }
+
+    .btn {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, #c8a951, #b5983e);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: white;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html"><h1>Éclat d’Or ✨</h1></a>
+  <a href="panier.html">🛍️ Voir le panier</a>
+</header>
+
+<main id="produit-details"></main>
+
+<footer>
+  © 2025 Éclat d’Or – Tous droits réservés.
+</footer>
+
 <script>
 const produits = {
   "creme-hydratante": {
     nom: "Crème Hydratante – 50 ml",
     prix: 80,
     image: "images/creme-hydra.jpg",
-    description: "Une crème hydratante d’exception, formulée à partir d’ingrédients d’origine naturelle.",
+    description: "Crème hydratante naturelle à l’action profonde.",
     benefices: [
-      "Hydratation profonde 24h",
-      "Texture légère et non grasse",
-      "Teint plus éclatant",
-      "Convient à toutes les peaux"
+      "Hydratation 24h",
+      "Texture légère",
+      "Peau plus lumineuse",
+      "Toutes peaux"
     ],
-    ingredients: "Aloe vera bio, acide hyaluronique, fleur d’oranger."
+    ingredients: "Aloe vera, acide hyaluronique, fleur d’oranger"
   },
 
   "serum-eclat": {
     nom: "Sérum Éclat – 30 ml",
     prix: 95,
     image: "images/serum-eclat.jpg",
-    description: "Un sérum ultra-concentré pour réveiller l’éclat naturel de la peau.",
+    description: "Sérum illuminateur haute performance.",
     benefices: [
       "Teint unifié",
       "Éclat immédiat",
-      "Réduction des taches",
-      "Effet bonne mine"
+      "Réduction des taches"
     ],
-    ingredients: "Vitamine C, pivoine blanche, niacinamide."
+    ingredients: "Vitamine C, pivoine, niacinamide"
   },
 
   "huile-precieuse": {
     nom: "Huile Précieuse – 30 ml",
     prix: 120,
     image: "images/huile-precieuse.jpg",
-    description: "Une huile rare et luxueuse pour nourrir intensément la peau.",
+    description: "Huile nourrissante luxueuse.",
     benefices: [
-      "Nourrit en profondeur",
-      "Lisse la peau",
-      "Éclat durable",
-      "Fini non gras"
+      "Nourrit intensément",
+      "Peau satinée",
+      "Non grasse"
     ],
-    ingredients: "Figue de barbarie, rose musquée, squalane végétal."
+    ingredients: "Figue de barbarie, rose musquée"
   },
 
   "creme-antiage": {
     nom: "Crème Anti-Âge – 50 ml",
     prix: 210,
     image: "images/creme-antiage.jpg",
-    description: "Une crème anti-âge hautement performante aux actifs premium.",
+    description: "Crème premium anti-rides.",
     benefices: [
-      "Rides réduites",
       "Peau plus ferme",
-      "Effet lissant",
-      "Action durable"
+      "Rides lissées",
+      "Effet rajeunissant"
     ],
-    ingredients: "Bakuchiol, peptides naturels, huile d’argan."
+    ingredients: "Bakuchiol, peptides, huile d’argan"
   }
 };
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
+
 const produit = produits[id];
 const container = document.getElementById("produit-details");
 
@@ -70,26 +160,25 @@ if (produit) {
       <p>${produit.description}</p>
 
       <strong>Bénéfices :</strong>
-      <ul>
-        ${produit.benefices.map(b => `<li>${b}</li>`).join("")}
-      </ul>
+      <ul>${produit.benefices.map(b => `<li>${b}</li>`).join("")}</ul>
 
       <p><strong>Ingrédients :</strong> ${produit.ingredients}</p>
       <p><strong>Prix :</strong> ${produit.prix} €</p>
 
-      <button class="btn" onclick="ajouterAuPanier('${id}')">
-        Ajouter au panier
-      </button>
+      <button class="btn" onclick="ajouterAuPanier('${id}')">Ajouter au panier</button>
     </div>
   `;
 } else {
-  container.innerHTML = "<p>Produit introuvable.</p>";
+  container.innerHTML = "<h2>Produit introuvable</h2>";
 }
 
 function ajouterAuPanier(id) {
   const panier = JSON.parse(localStorage.getItem("panier")) || [];
   panier.push(produits[id]);
   localStorage.setItem("panier", JSON.stringify(panier));
-  alert(`${produits[id].nom} ajouté au panier !`);
+  alert("Ajouté au panier !");
 }
 </script>
+
+</body>
+</html>
